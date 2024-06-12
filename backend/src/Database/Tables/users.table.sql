@@ -9,4 +9,5 @@ CREATE TABLE users (
     is_admin BIT DEFAULT 0,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL
+    is_deleted BIT DEFAULT 0
 );
