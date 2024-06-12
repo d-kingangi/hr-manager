@@ -1,5 +1,4 @@
-CREATE OR ALTER PROCEDURE get_single_task
-    @task_id VARCHAR(255)
+CREATE OR ALTER PROCEDURE get_all_tasks
 AS
 BEGIN
     SELECT 
@@ -46,8 +45,6 @@ BEGIN
     LEFT JOIN 
         users assigned_to_manager ON assigned_to_dept.manager_id = assigned_to_manager.user_id
     WHERE 
-        t.task_id = @task_id
-    AND 
         created_by_user.is_deleted = 0
     AND 
         assigned_to_user.is_deleted = 0;
