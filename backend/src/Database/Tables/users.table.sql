@@ -7,6 +7,6 @@ CREATE TABLE users (
     role VARCHAR(255) NOT NULL,
     password NVARCHAR(MAX) NOT NULL,
     is_admin BIT DEFAULT 0,
-    created_at DATETIME NOT NULL DEFAULT GETDATE(),
-    updated_at DATETIME NOT NULL DEFAULT GETDATE()
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
 );
