@@ -10,7 +10,7 @@ export interface ExtendedUserRequest extends Request{
     info?: login_user_details
 }
 
-export const verifyToken = (req:ExtendedUserRequest, res: Response, next: NextFunction) =>{
+export const verify_token = (req:ExtendedUserRequest, res: Response, next: NextFunction) =>{
     try {
         const token = req.headers['token'] as string
 
