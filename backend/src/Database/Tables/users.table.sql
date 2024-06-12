@@ -9,7 +9,7 @@ CREATE TABLE users (
     password NVARCHAR(MAX) NOT NULL,
     is_admin BIT DEFAULT 0,
     created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL
+    updated_at DATETIME NOT NULL,
     is_deleted BIT DEFAULT 0,
-    ADD CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id);
+    CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id);
 );

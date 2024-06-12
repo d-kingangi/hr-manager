@@ -3,7 +3,7 @@ export interface user{
     last_name: string,
     phone: string,
     email: string,
-    roler: string,
+    role: string,
     dept_id:string,
     password: string,
     created_at: Date,
