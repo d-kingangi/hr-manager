@@ -3,7 +3,7 @@ CREATE TABLE tasks (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     due_date DATETIME,
-    status VARCHAR(255) NOT NULL DEFAULT 'not-assigned',
+    status VARCHAR(255) NOT NULL,
     assigned_to VARCHAR(255),
     created_by VARCHAR(255),
     estimated_effort INT,
