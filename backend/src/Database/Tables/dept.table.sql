@@ -3,5 +3,6 @@ CREATE TABLE departments (
     name VARCHAR(255) UNIQUE NOT NULL,
     manager_id VARCHAR(255),
     description TEXT,
+    is_deleted BIT DEFAULT 0,
     CONSTRAINT FK_Departments_Manager FOREIGN KEY (manager_id) REFERENCES users(user_id)
 );
