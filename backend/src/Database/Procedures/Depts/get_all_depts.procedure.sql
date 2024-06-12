@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE get_all_depts
+AS
+BEGIN
+    SELECT * FROM departments
+END
