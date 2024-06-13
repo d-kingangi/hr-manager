@@ -20,7 +20,7 @@ app.use('/user', userRouter)
 app.use('/dept', deptRouter)
 app.use('/task', taskRouter)
 
-const PORT = process.env.PORT as string;
+const PORT = process.env.PORT || 3000;
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).json({
