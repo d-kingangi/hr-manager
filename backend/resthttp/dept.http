@@ -1,0 +1,68 @@
+
+###Create Department
+POST http://localhost:3000/dept/new
+Content-Type: application/json
+
+{
+"name": "Engineering",
+"manager_id": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"description": "Engineering department"
+}
+
+###Create Department
+POST http://localhost:3000/dept/new
+Content-Type: application/json
+
+{
+"name": "Sales",
+"manager_id": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"description": "Sales department"
+}
+
+###Create Department
+POST http://localhost:3000/dept/new
+Content-Type: application/json
+
+{
+"name": "Human Resources",
+"manager_id": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"description": "HR department"
+}
+
+###Create Department
+POST http://localhost:3000/dept/new
+Content-Type: application/json
+
+{
+"name": "Marketing",
+"manager_id": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"description": "Marketing department"
+}
+
+###Get All Departments
+GET http://localhost:3000/dept/all
+Content-Type: application/json
+
+###Get Single Department
+GET http://localhost:3000/dept/dept_id
+
+###Get Department Employees
+GET http://localhost:3000/dept/1/employees
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN
+
+###Update Department
+PUT http://localhost:3000/dept/update/1
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN
+
+{
+"name": "Updated Engineering",
+"manager_id": "1234",
+"description": "Updated description"
+}
+
+###Delete Department
+DELETE http://localhost:3000/dept/delete/1
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN

@@ -6,3 +6,7 @@ CREATE TABLE departments (
     is_deleted BIT DEFAULT 0,
     CONSTRAINT FK_Departments_Manager FOREIGN KEY (manager_id) REFERENCES users(user_id)
 );
+
+ALTER TABLE departments DROP CONSTRAINT FK_Departments_Manager 
+
+ALTER TABLE departments ADD CONSTRAINT FK_Departments_Manager FOREIGN KEY (manager_id) REFERENCES users(user_id)

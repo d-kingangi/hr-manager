@@ -13,5 +13,5 @@ CREATE OR ALTER PROCEDURE create_task
 AS
 BEGIN
     INSERT INTO tasks(task_id, title, description, due_date, status, assigned_to, created_by, estimated_effort, labels)
-    VALUES (@task_id, @title, @description, @due_date, @status, @assigned_to, @created_by, @estimated_effort, labels)
+    VALUES (@task_id, @title, @description, @due_date, @status, @assigned_to, @created_by, @estimated_effort, @labels)
 END

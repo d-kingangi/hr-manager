@@ -5,9 +5,9 @@ import { create_dept, get_all_depts, get_single_dept, get_dept_employees, update
 const deptRouter = Router()
 
 deptRouter.post('/new', create_dept)
-deptRouter.get('/all', verify_token, get_all_depts)
-deptRouter.get('/dept/dept_id', verify_token, get_single_dept)
-deptRouter.get('/dept/:dept_id/employees', verify_token, get_dept_employees)
+deptRouter.get('/all', get_all_depts)
+deptRouter.get('/dept/dept_id', get_single_dept)
+deptRouter.get('/dept/:dept_id/employees', get_dept_employees)
 deptRouter.put('/update/:dept_id', verify_token, update_dept)
 deptRouter.delete('/delete/:dept_id', verify_token, delete_dept)
 

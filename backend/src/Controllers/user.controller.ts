@@ -13,6 +13,8 @@ export const register_user = async (req: Request, res: Response) => {
 
         const {first_name, last_name, phone, email, role, dept_id, password, created_at, updated_at}:user = req.body
 
+        // console.log(req.body);
+        
         let hashed_pwd = await bcrypt.hash(password, 4)
 
         let {error} = register_user_schema.validate(req.body)
@@ -30,9 +32,10 @@ export const register_user = async (req: Request, res: Response) => {
         .input("first_name", mssql.VarChar, first_name)
         .input("last_name", mssql.VarChar, last_name)
         .input("email", mssql.VarChar, email)
+        .input("phone", mssql.VarChar, phone)
         .input("role", mssql.VarChar, role)
         .input("dept_id", mssql.VarChar, dept_id)
-        .input("passwor", mssql.VarChar, hashed_pwd)
+        .input("password", mssql.VarChar, hashed_pwd)
         .input("created_at", mssql.DateTime, created_at)
         .input("updated_at", mssql.DateTime, updated_at)
         .execute('create_user')).rowsAffected

@@ -46,7 +46,7 @@ BEGIN
     LEFT JOIN 
         users created_by_manager ON created_by_dept.manager_id = created_by_manager.user_id
     WHERE 
-        t.assigned_to = @user_id
+        t.assigned_to = @assigned_to
     AND 
         assigned_to_user.is_deleted = 0;
 END;

@@ -1,4 +1,5 @@
 CREATE OR ALTER PROCEDURE delete_dept
+@dept_id VARCHAR(255)
 AS
 BEGIN
     UPDATE departments

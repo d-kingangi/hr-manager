@@ -20,14 +20,14 @@ export const create_dept = async (req: Request, res: Response) => {
         const pool = await mssql.connect(sqlConfig);
 
         let result = await(await pool.request()
-        .input("dept_id", mssql.VarBinary, dept_id)
+        .input("dept_id", mssql.VarChar, dept_id)
         .input("name", mssql.VarChar, name)
         .input("manager_id", mssql.VarChar, manager_id)
         .input("description", mssql.VarChar, description)
         .execute('create_dept')).rowsAffected
 
         return res.status(201).json({
-            message: "Post created successfully",
+            message: "Department created successfully",
         });
     } catch (error) {
         return res.status(500).json({ error: error });
