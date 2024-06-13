@@ -92,15 +92,15 @@ export const get_dept_employees = async (req: Request, res: Response) => {
     }
 }
 
-// export const update_dept = async (req: Request, res: Response) => {
-//     try {
-//         const dept_id = req.params.dept_id
+export const update_dept = async (req: Request, res: Response) => {
+    // try {
+    //     const dept_id = req.params.dept_id
 
-//         const update_dept
-//     } catch (error) {
+    //     const {name, manager_id, description} = req.body
+    // } catch (error) {
         
-//     }
-// }
+    // }
+}
 
 
 export const delete_dept = async (req: Request, res: Response) => {

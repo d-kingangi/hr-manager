@@ -148,13 +148,13 @@ export const get_manager_tasks = async (req: Request, res: Response) => {
 }
 
 
-// export const update_task = async (req: Request, res: Response) => {
-//     try {
+export const update_task = async (req: Request, res: Response) => {
+    // try {
         
-//     } catch (error) {
+    // } catch (error) {
         
-//     }
-// }
+    // }
+}
 
 
 export const delete_task = async (req: Request, res: Response) => {

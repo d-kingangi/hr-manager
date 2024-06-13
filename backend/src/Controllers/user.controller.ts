@@ -47,7 +47,7 @@ export const register_user = async (req: Request, res: Response) => {
 
 
 
-export const get_all_user = async(req: Request, res:Response)=>{
+export const get_all_users = async(req: Request, res:Response)=>{
     try {
         const pool = await mssql.connect(sqlConfig)
 
@@ -82,21 +82,21 @@ export const get_single_user = async (req: Request, res: Response) => {
     }
 }
 
-// export const update_user = async (req: Request, res: Response) =>{
-//     try {
-//         const user_id = req.params.user_id
+export const update_user = async (req: Request, res: Response) =>{
+    // try {
+    //     const user_id = req.params.user_id
 
-//         const {first_name, last_name, phone, email, role, dept_id, password, created_at, updated_at}:user = req.body
-//     } catch (error) {
+    //     const {first_name, last_name, phone, email, role, dept_id, password, created_at, updated_at}:user = req.body
+    // } catch (error) {
         
-//     }
-// }
+    // }
+}
 
 export const delete_user = async (req: Request, res: Response) => {
     try {
         const user_id = req.params.user_id
 
-        const pool = await.mssql.connect(sqlConfig)
+        const pool = await mssql.connect(sqlConfig)
 
         let result = await(await pool.request()
         .input("user_id", mssql.VarChar, user_id)
