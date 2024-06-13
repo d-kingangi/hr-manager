@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE get_employee_tasks
-    @user_id VARCHAR(255)
+    @assigned_to VARCHAR(255)
 AS
 BEGIN
     SELECT 

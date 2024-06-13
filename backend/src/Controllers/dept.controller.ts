@@ -1,5 +1,4 @@
-import mssql, { VarChar } from 'mssql';
-import bcrypt from 'bcrypt';
+import mssql from 'mssql';
 import { Request, Response } from "express";
 import { v4 } from 'uuid';
 import { sqlConfig } from '../Config/sql.config';

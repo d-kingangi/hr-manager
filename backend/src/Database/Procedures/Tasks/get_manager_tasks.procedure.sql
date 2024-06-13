@@ -1,5 +1,5 @@
-CREATE PROCEDURE get_manager_tasks
-    @manager_id VARCHAR(255)
+CREATE OR ALTER PROCEDURE get_manager_tasks
+    @created_by VARCHAR(255)
 AS
 BEGIN
     SELECT 
