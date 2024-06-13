@@ -1,0 +1,22 @@
+<nav>
+    <div class="nav-logo">
+        <a routerLink="/">
+          <img src="../../../assets/..." alt="Logo">
+        </a>
+    </div>
+    <div class="nav-links">
+        <li><a routerLink="/" data-testid="jobs"> Tasks</a></li>
+        <li><a routerLink="/" data-testid="talents"> Managers</a></li>
+        <li><a routerLink="/" data-testid="employers">Employees</a></li>
+    </div>
+      <div>
+        <li><a *ngIf="!isTokenAvailable()" routerLink="/login" data-testid="login">Login</a></li>
+        <li><a *ngIf="isTokenAvailable()" (click)="logout()" data-testid="logout">Logout</a></li>
+        <li><a *ngIf="!isTokenAvailable()" routerLink="/registration" data-testid="sign-up">Sign-up</a></li>
+      </div>
+    <div class="profile-logo">
+        <a routerLink="">
+          <img src="../../../assets/user-png-icon-big-image-png-2240.png" alt="Labour Logo">
+        </a>
+    </div>
+</nav>
