@@ -5,6 +5,7 @@ import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   private apiUrl = 'http://localhost:3000'
