@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AuthService } from '../../Services/Auth/auth.service';
+import { loginDetails, loginResponse } from '../../Interfaces/login.interface';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,29 @@ export class LoginComponent {
   successMsg!: string;
   errorDiv = false
   successDiv = false
+
+  constructor(private AuthService: AuthService, private fb: FormBuilder, private router: Router){
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+    })
+  }
+
+  loginUser(details: loginDetails) {
+    if (this.loginForm.valid) {
+      this.AuthService.loginUser(details).subscribe(response => {
+        console.log(response);
+        if (response.message) {
+          this.displaySuccess(response.message, '', response.token);
+        }
+      }, (error) => {
+        console.error('Error:', error);
+        this.displayErrors(error.error);
+      });
+    } else {
+      this.displayErrors('Please fill in all the fields');
+    }
+  }
 
   storeToken(token: string){
     localStorage.setItem('token', token)
