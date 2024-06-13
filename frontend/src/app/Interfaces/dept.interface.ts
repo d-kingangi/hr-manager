@@ -14,7 +14,7 @@ export interface departmentInfoResponse{
 }
 
 export interface allDepartmentsResponse{
-    industries:[
+    departments:[
         {
             dept_id: string,
             name: string,
