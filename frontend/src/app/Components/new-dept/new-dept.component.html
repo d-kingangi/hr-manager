@@ -1,1 +1,26 @@
-<p>new-dept works!</p>
+<div class="body">
+
+    <div *ngIf="errorDiv" class="error-message">{{errorMsg}}</div>
+    <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
+
+    <div class="container">
+        <form class="form-container" [formGroup]="newDepartmentForm", (ngSubmit)="newDepartmentForm">
+            <div class="form-container-left">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" formControlName="name" placeholder="name">
+                    <div class="error" id="error" *ngIf="newDepartmentForm.get('first_name')?.invalid && newDepartmentForm.get('first_name')?.touched && !newDepartmentForm.get('name')?.dirty">This is required</div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="description" name="description" formControlName="description" placeholder="Firstname">
+                    <div class="error" id="error" *ngIf="newDepartmentForm.get('description')?.invalid && newDepartmentForm.get('description')?.touched && !newDepartmentForm.get('description')?.dirty">This is required</div>
+                </div>
+                <div class="form-group">
+                    <select name="manager" id="manager" formControlName="manager" >
+                        <option value="" disabled selected>Manager</option>
+                        <option *ngFor="let user of users; let i = index" value="{{user.user_id}}" placeholder="manager">{{ user.first_name}} {{ user.last_name}}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

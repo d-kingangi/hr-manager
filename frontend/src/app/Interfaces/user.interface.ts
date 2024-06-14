@@ -16,7 +16,7 @@ export interface userInfoResponse{
 }
 
 export interface userInfoResponse{
-    talent: [
+    user: [
         {
         user_id: string,
         first_name: string,
@@ -35,7 +35,7 @@ export interface userInfoResponse{
 
 
 export interface allUsersResponse{
-    talents:[
+    users:[
         {
         user_id: string,
         first_name: string,

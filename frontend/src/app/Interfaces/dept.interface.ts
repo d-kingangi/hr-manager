@@ -6,6 +6,10 @@ export interface department{
 }
 
 export interface departmentInfoResponse{
+    message: string,
+}
+
+export interface departmentInfoResponse{
     info:{
         dept_id: string,
         name: string,
