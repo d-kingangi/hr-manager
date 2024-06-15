@@ -9,7 +9,7 @@
         <form class="form-container" [formGroup]="updateProfileForm", (ngSubmit)="updateProfileForm">
 
             <div class="form-container-left">
-                <div class="form-group">Update Profile</div>
+                <div class="form-group">Update</div>
                 <div class="form-group">
                     <input type="text" id="first_name" name="first_name" formControlName="first_name" placeholder="Firstname">
                     <div class="fname-error" id="error" *ngIf="updateProfileForm.get('first_name')?.invalid && updateProfileForm.get('first_name')?.touched && !updateProfileForm.get('first_name')?.dirty">This is required</div>

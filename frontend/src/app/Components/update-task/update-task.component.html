@@ -1,1 +1,60 @@
-<p>update-task works!</p>
+
+<app-navbar></app-navbar>
+
+<div class="body">
+
+    <div *ngIf="errorDiv" class="error-message">{{errorMsg}}</div>
+    <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
+
+    <div class="container">
+        <form class="form-container" [formGroup]="updateTaskForm", (ngSubmit)="update_task()">
+            <div class="form-container-left">
+                <div class="form-group">
+                    <input type="text" id="title" name="title" formControlName="title" placeholder="title">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('title')?.invalid && updateTaskForm.get('title')?.touched && !updateTaskForm.get('title')?.dirty">This is required</div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="description" name="description" formControlName="description" placeholder="description">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('description')?.invalid && updateTaskForm.get('description')?.touched && !updateTaskForm.get('description')?.dirty">This is required</div>
+                </div>
+                <div class="form-group">
+                    <input type="datetime-local" id="due_date" name="due_date" formControlName="due_date">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('due_date')?.invalid && updateTaskForm.get('due_date')?.touched && !updateTaskForm.get('due_date')?.dirty">This is required</div></div>
+                </div>
+                <div class="form-group">
+                    <select id="status" name="status" formControlName="status" >
+                        <option value="" disabled selected>Status</option>
+                        <option value="not-assigned">Not-assigned</option>
+                        <option value="incompete">Incompete</option>
+                        <option value="complete">Complete</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="assigned_to" id="assigned_to" formControlName="assigned_to" >
+                        <option value="" disabled selected>Assigned to</option>
+                        <option *ngFor="let user of users; let i = index" value="{{user.user_id}}" placeholder="manager">{{ user.first_name}} {{ user.last_name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="estimated_effort" name="estimated_effort" formControlName="estimated_effort">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('estimated_effort')?.invalid && updateTaskForm.get('estimated_effort')?.touched && !updateTaskForm.get('estimated_effort')?.dirty">This is required</div></div>
+                </div>
+                <div class="form-group">
+                    <input type="datetime-local" id="completed_at" name="completed_at" formControlName="due_date">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('completed_at')?.invalid && updateTaskForm.get('completed_at')?.touched && !updateTaskForm.get('completed_at')?.dirty">This is required</div></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="labels" formControlName="labels">
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('labels')?.invalid && updateTaskForm.get('labels')?.touched && !updateTaskForm.get('labels')?.dirty">This is required</div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="illustration-container">
+        <img src="../../../assets/high-4.jpeg" alt="Illustration of a person working on a laptop">
+    </div>
+
+</div>
+
+<app-footer></app-footer>
