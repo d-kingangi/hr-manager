@@ -43,7 +43,7 @@ export class UpdateTaskComponent {
       assigned_to: ['', [Validators.required]],
       created_by: ['', [Validators.required]],
       estimated_effort: ['', [Validators.required]],
-      completed_at: ['', [Validators.required]],
+      completed_at: ['', [Validators]],
       labels: ['', [Validators.required]],
     })
     this.get_task_id();

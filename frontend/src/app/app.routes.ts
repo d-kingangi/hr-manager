@@ -21,6 +21,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { AdminTasksComponent } from './Components/admin-tasks/admin-tasks.component';
 import { ManagerEmployeesComponent } from './Components/manager-employees/manager-employees.component';
+import { UpdateDeptComponent } from './Components/update-dept/update-dept.component';
 
 export const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -31,6 +32,7 @@ export const routes: Routes = [
     {path: 'admin/managers', component: AdminManagersComponent},
     {path: 'admin/depts', component: AdminDeptsComponent},
     {path: 'admin/depts/new', component: NewDeptComponent},
+    {path: 'dept/update/:dept_id', component: UpdateDeptComponent},
     {path: 'admin/dash/:user_id', component: AdminDashboardComponent},
     {path: 'admin/task/all', component: AdminTasksComponent},
     //manager routes

@@ -1,18 +1,20 @@
+<app-navbar></app-navbar>
+
 <div class="body">
 
     <div *ngIf="errorDiv" class="error-message">{{errorMsg}}</div>
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="newDepartmentForm", (ngSubmit)="create_dept(newDepartmentForm.value)">
+        <form class="form-container" [formGroup]="updateDeptForm", (ngSubmit)="update_dept(updateDeptForm.value)">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="name" name="name" formControlName="name" placeholder="name">
-                    <div class="error" id="error" *ngIf="newDepartmentForm.get('name')?.invalid && newDepartmentForm.get('name')?.touched && !newDepartmentForm.get('name')?.dirty">This is required</div>
+                    <div class="error" id="error" *ngIf="updateDeptForm.get('name')?.invalid && updateDeptForm.get('first_name')?.touched && !updateDeptForm.get('name')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="text" id="description" name="description" formControlName="description" placeholder="Firstname">
-                    <div class="error" id="error" *ngIf="newDepartmentForm.get('description')?.invalid && newDepartmentForm.get('description')?.touched && !newDepartmentForm.get('description')?.dirty">This is required</div>
+                    <div class="error" id="error" *ngIf="updateDeptForm.get('description')?.invalid && updateDeptForm.get('description')?.touched && !updateDeptForm.get('description')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <select name="manager" id="manager" formControlName="manager" >
@@ -24,3 +26,5 @@
         </form>
     </div>
 </div>
+
+<app-footer></app-footer>
