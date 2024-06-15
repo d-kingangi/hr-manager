@@ -6,7 +6,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="registerUserForm", (ngSubmit)="registerUserForm">
+        <form class="form-container" [formGroup]="registerUserForm", (ngSubmit)="register_user(registerUserForm.value)">
 
             <div class="form-container-left">
                 <div>Registration Form</div>

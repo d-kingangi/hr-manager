@@ -7,7 +7,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="updateTaskForm", (ngSubmit)="update_task()">
+        <form class="form-container" [formGroup]="updateTaskForm", (ngSubmit)="update_task(updateTaskForm.value)">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="title" name="title" formControlName="title" placeholder="title">

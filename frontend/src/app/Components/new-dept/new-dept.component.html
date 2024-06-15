@@ -4,7 +4,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="newDepartmentForm", (ngSubmit)="newDepartmentForm">
+        <form class="form-container" [formGroup]="newDepartmentForm", (ngSubmit)="create_dept(newDepartmentForm.value)">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="name" name="name" formControlName="name" placeholder="name">

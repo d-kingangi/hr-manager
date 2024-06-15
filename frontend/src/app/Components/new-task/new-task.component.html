@@ -6,7 +6,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="newTaskForm", (ngSubmit)="newTaskForm.">
+        <form class="form-container" [formGroup]="newTaskForm", (ngSubmit)="create_task(newTaskForm.value)">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="title" name="title" formControlName="title" placeholder="title">

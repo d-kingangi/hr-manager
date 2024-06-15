@@ -94,6 +94,16 @@ export class UpdateTaskComponent {
     })
   }
 
+  update_task(){
+    // this.TaskService.update_task(this.updateTaskForm.value, this.task_id).subscribe(res =>{
+    //   if(res.sucess){
+    //     this.displaySuccess(res)
+    //   }else{
+    //     this.displayErrors(res)
+    //   }
+    // })
+  }
+
   displaySuccess(msg:string){
     this.successMsg = msg;
     this.successDiv = true
