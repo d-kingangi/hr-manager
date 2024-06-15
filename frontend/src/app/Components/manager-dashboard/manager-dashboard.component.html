@@ -1,1 +1,12 @@
-<p>manager-dashboard works!</p>
+<app-navbar></app-navbar>
+
+<section class="manager-dashboard">
+    <div class="side-bar">
+      <app-manager-sidebar></app-manager-sidebar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+</section>
+
+<app-footer></app-footer>
