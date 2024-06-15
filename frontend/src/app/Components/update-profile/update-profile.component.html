@@ -6,25 +6,25 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="registerUserForm", (ngSubmit)="registerUserForm">
+        <form class="form-container" [formGroup]="updateProfileForm", (ngSubmit)="updateProfileForm">
 
             <div class="form-container-left">
-                <div>Registration Form</div>
+                <div class="form-group">Update Profile</div>
                 <div class="form-group">
                     <input type="text" id="first_name" name="first_name" formControlName="first_name" placeholder="Firstname">
-                    <div class="fname-error" id="error" *ngIf="registerUserForm.get('first_name')?.invalid && registerUserForm.get('first_name')?.touched && !registerUserForm.get('first_name')?.dirty">This is required</div>
+                    <div class="fname-error" id="error" *ngIf="updateProfileForm.get('first_name')?.invalid && updateProfileForm.get('first_name')?.touched && !updateProfileForm.get('first_name')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="text" id="last_name" name="last_name" formControlName="last_name" placeholder="Lastname">
-                    <div class="lname-error" id="error" *ngIf="registerUserForm.get('last_name')?.invalid && registerUserForm.get('last_name')?.touched && !registerUserForm.get('last_name')?.dirty">This is required</div>
+                    <div class="lname-error" id="error" *ngIf="updateProfileForm.get('last_name')?.invalid && updateProfileForm.get('last_name')?.touched && !updateProfileForm.get('last_name')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="text" id="phone" name="phone" formControlName="phone" placeholder="Phone">
-                    <div class="phone-error" id="error" *ngIf="registerUserForm.get('phone')?.invalid && registerUserForm.get('phone')?.touched && !registerUserForm.get('phone')?.dirty">This is required</div>
+                    <div class="phone-error" id="error" *ngIf="updateProfileForm.get('phone')?.invalid && updateProfileForm.get('phone')?.touched && !updateProfileForm.get('phone')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="email" id="email" name="email" formControlName="email" placeholder="Email">
-                    <div class="email-error" id="error" *ngIf="registerUserForm.get('email')?.invalid && registerUserForm.get('email')?.touched && !registerUserForm.get('email')?.dirty">This is required</div>
+                    <div class="email-error" id="error" *ngIf="updateProfileForm.get('email')?.invalid && updateProfileForm.get('email')?.touched && !updateProfileForm.get('email')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <select id="role" name="role" formControlName="role" >
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <input type="password" id="password" name="password" placeholder="Password">
-                    <div class="pass-error" id="error" *ngIf="registerUserForm.get('password')?.invalid && registerUserForm.get('password')?.touched && !registerUserForm.get('password')?.dirty">Password is required</div>
+                    <div class="pass-error" id="error" *ngIf="updateProfileForm.get('password')?.invalid && updateProfileForm.get('password')?.touched && !updateProfileForm.get('password')?.dirty">Password is required</div>
                 </div>
             </div>
 
@@ -54,6 +54,5 @@
     
 
 </div>
-
 
 <app-footer></app-footer>
