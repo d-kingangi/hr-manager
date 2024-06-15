@@ -7,6 +7,7 @@ import { AdminEmployeesComponent } from './Components/admin-employees/admin-empl
 import { AdminManagersComponent } from './Components/admin-managers/admin-managers.component';
 import { AdminDeptsComponent } from './Components/admin-depts/admin-depts.component';
 import { NewDeptComponent } from './Components/new-dept/new-dept.component';
+import { NewTaskComponent } from './Components/new-task/new-task.component';
 
 export const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -16,7 +17,9 @@ export const routes: Routes = [
     {path: 'employees', component: AdminEmployeesComponent},
     {path: 'managers', component: AdminManagersComponent},
     {path: 'depts', component: AdminDeptsComponent},
-    {path: 'new-dept', component: NewDeptComponent}
+    {path: 'new-dept', component: NewDeptComponent},
+    //manager routes
+    {path: 'new-task', component: NewTaskComponent}
 
 ];
 
