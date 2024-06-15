@@ -41,11 +41,11 @@ export class RegisterComponent {
 
   get_departments(){
     this.DeptService.get_all_depts().subscribe(res=>{
-      if(res.departments){
-        res.departments.forEach((this.department) =>{
-          this.departments.push(department)
-        })
-      }
+      // if(res.departments){
+      //   res.departments.forEach((this.department) =>{
+      //     this.departments.push(department)
+      //   })
+      // }
     })
   }
 

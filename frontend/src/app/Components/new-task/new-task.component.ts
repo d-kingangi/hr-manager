@@ -60,21 +60,21 @@ export class NewTaskComponent {
 
   get_departments(){
     this.DeptService.get_all_depts().subscribe(res=>{
-      if(res.departments){
-        res.departments.forEach((this.department) =>{
-          this.departments.push(department)
-        })
-      }
+      // if(res.departments){
+      //   res.departments.forEach((this.department) =>{
+      //     this.departments.push(department)
+      //   })
+      // }
     })
   }
 
   get_employees(){
     this.UserService.get_all_users().subscribe(res=>{
-      if(res.user){
-        res.user.forEach((this.user) =>{
-          this.users.push(user)
-        })
-      }
+      // if(res.user){
+      //   res.user.forEach((this.user) =>{
+      //     this.users.push(user)
+      //   })
+      // }
     })
   }
 

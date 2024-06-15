@@ -34,11 +34,11 @@ export class NewDeptComponent {
 
   get_manager(){
     this.UserService.get_all_users().subscribe(res=>{
-      if(res.user){
-        res.user.forEach((this.users)=>{
-          this.user.push(user)
-        })
-      }
+      // if(res.user){
+      //   res.user.forEach((this.users)=>{
+      //     this.user.push(user)
+      //   })
+      // }
     })
   }
 

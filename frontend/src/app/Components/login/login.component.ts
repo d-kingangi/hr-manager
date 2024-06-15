@@ -14,6 +14,7 @@ import { loginDetails, loginResponse } from '../../Interfaces/login.interface';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
 
   loginForm!: FormGroup;
