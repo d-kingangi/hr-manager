@@ -6,7 +6,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="updateDeptForm", (ngSubmit)="update_dept(updateDeptForm.value)">
+        <form class="form-container" [formGroup]="updateDeptForm", (ngSubmit)="update_dept()">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="name" name="name" formControlName="name" placeholder="name">

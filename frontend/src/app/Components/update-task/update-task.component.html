@@ -7,7 +7,7 @@
     <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
     <div class="container">
-        <form class="form-container" [formGroup]="updateTaskForm", (ngSubmit)="update_task(updateTaskForm.value)">
+        <form class="form-container" [formGroup]="updateTaskForm", (ngSubmit)="update_task()">
             <div class="form-container-left">
                 <div class="form-group">
                     <input type="text" id="title" name="title" formControlName="title" placeholder="title">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <input type="datetime-local" id="due_date" name="due_date" formControlName="due_date">
-                    <div class="error" id="error" *ngIf="updateTaskForm.get('due_date')?.invalid && updateTaskForm.get('due_date')?.touched && !updateTaskForm.get('due_date')?.dirty">This is required</div></div>
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('due_date')?.invalid && updateTaskForm.get('due_date')?.touched && !updateTaskForm.get('due_date')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <select id="status" name="status" formControlName="status" >
@@ -37,11 +37,11 @@
                 </div>
                 <div class="form-group">
                     <input type="number" id="estimated_effort" name="estimated_effort" formControlName="estimated_effort">
-                    <div class="error" id="error" *ngIf="updateTaskForm.get('estimated_effort')?.invalid && updateTaskForm.get('estimated_effort')?.touched && !updateTaskForm.get('estimated_effort')?.dirty">This is required</div></div>
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('estimated_effort')?.invalid && updateTaskForm.get('estimated_effort')?.touched && !updateTaskForm.get('estimated_effort')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="datetime-local" id="completed_at" name="completed_at" formControlName="due_date">
-                    <div class="error" id="error" *ngIf="updateTaskForm.get('completed_at')?.invalid && updateTaskForm.get('completed_at')?.touched && !updateTaskForm.get('completed_at')?.dirty">This is required</div></div>
+                    <div class="error" id="error" *ngIf="updateTaskForm.get('completed_at')?.invalid && updateTaskForm.get('completed_at')?.touched && !updateTaskForm.get('completed_at')?.dirty">This is required</div>
                 </div>
                 <div class="form-group">
                     <input type="text" name="labels" formControlName="labels">
