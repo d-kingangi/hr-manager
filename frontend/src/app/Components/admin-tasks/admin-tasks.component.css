@@ -1,0 +1,32 @@
+.employees-section {
+    width: 80vw;
+  }
+  
+  #employees {
+    color: #ffffff;
+    width: 80%;
+  }
+  
+  #employees th{
+    background-color: dodgerblue;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  #employees td {
+    background-color: #dbdbdb;
+    padding: 10px;
+  }
+  
+  #employees td:nth-child(even) {
+    background-color: dodgerblue;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .actions i {
+    cursor: pointer;
+  }
