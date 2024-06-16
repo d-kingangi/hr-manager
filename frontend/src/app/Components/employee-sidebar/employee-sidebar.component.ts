@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { Router,  RouterLink, RouterOutlet  } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
-  selector: 'app-manager-sidebar',
+  selector: 'app-employee-sidebar',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, NavbarComponent, FooterComponent],
-  templateUrl: './manager-sidebar.component.html',
-  styleUrl: './manager-sidebar.component.css'
+  imports: [Router, RouterLink, RouterOutlet, NavbarComponent, FooterComponent],
+  templateUrl: './employee-sidebar.component.html',
+  styleUrl: './employee-sidebar.component.css'
 })
-export class ManagerSidebarComponent {
+
+export class EmployeeSidebarComponent {
 
   constructor(private router: Router){}
 

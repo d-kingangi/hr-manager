@@ -1,0 +1,47 @@
+.employee-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 20vw;
+    align-items: center;
+  }
+
+  .project-logo{
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 20px;
+  }
+  
+  .links > li {
+    cursor: pointer;
+  }
+  
+  .links >li:hover {
+    color: #1e90ff;
+  }
+  
+  i {
+    color: dodgerblue;
+  }
+  
+  .logout-section {
+    margin-bottom: 30px; 
+  }
+  
+  .login-link {
+    color: dodgerblue;;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
