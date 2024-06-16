@@ -12,7 +12,7 @@ import { department, departmentInfoResponse, allDepartmentsResponse } from '../.
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

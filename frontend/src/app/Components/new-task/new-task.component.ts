@@ -14,7 +14,7 @@ import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.
 @Component({
   selector: 'app-new-task',
   standalone: true,
-  imports: [ NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule, ],
+  imports: [ RouterLink, NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule, ],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })

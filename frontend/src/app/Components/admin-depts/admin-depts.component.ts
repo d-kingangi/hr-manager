@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, Router } from '@angular/router';
 import { department, departmentInfoResponse, allDepartmentsResponse } from '../../Interfaces/dept.interface';
 import { DeptService } from '../../Services/Depts/dept.service';
 import { UserService } from '../../Services/Users/user.service';
@@ -10,7 +11,7 @@ import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-admin-depts',
   standalone: true,
-  imports: [ CommonModule, NavbarComponent, FooterComponent ],
+  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent ],
   templateUrl: './admin-depts.component.html',
   styleUrl: './admin-depts.component.css'
 })

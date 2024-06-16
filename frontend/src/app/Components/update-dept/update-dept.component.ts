@@ -13,7 +13,7 @@ import { AuthService } from '../../Services/Auth/auth.service';
 @Component({
   selector: 'app-update-dept',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './update-dept.component.html',
   styleUrl: './update-dept.component.css'
 })

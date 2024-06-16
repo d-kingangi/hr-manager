@@ -10,7 +10,7 @@ import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.
 @Component({
   selector: 'app-new-dept',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './new-dept.component.html',
   styleUrl: './new-dept.component.css'
 })

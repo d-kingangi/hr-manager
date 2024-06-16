@@ -6,7 +6,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 @Component({
   selector: 'app-employee-sidebar',
   standalone: true,
-  imports: [Router, RouterLink, RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './employee-sidebar.component.html',
   styleUrl: './employee-sidebar.component.css'
 })

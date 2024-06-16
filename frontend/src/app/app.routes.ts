@@ -5,7 +5,6 @@ import { LandingComponent } from './Components/landing/landing.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AdminEmployeesComponent } from './Components/admin-employees/admin-employees.component';
-import { AdminManagersComponent } from './Components/admin-managers/admin-managers.component';
 import { AdminDeptsComponent } from './Components/admin-depts/admin-depts.component';
 import { NewDeptComponent } from './Components/new-dept/new-dept.component';
 import { NewTaskComponent } from './Components/new-task/new-task.component';
@@ -29,7 +28,6 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     //admin routes
     {path: 'admin/employees', component: AdminEmployeesComponent},
-    {path: 'admin/managers', component: AdminManagersComponent},
     {path: 'admin/depts', component: AdminDeptsComponent},
     {path: 'admin/depts/new', component: NewDeptComponent},
     {path: 'dept/update/:dept_id', component: UpdateDeptComponent},

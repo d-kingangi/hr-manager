@@ -15,7 +15,7 @@ import { TaskService } from '../../Services/Tasks/task.service';
 @Component({
   selector: 'app-update-task',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './update-task.component.html',
   styleUrl: './update-task.component.css'
 })

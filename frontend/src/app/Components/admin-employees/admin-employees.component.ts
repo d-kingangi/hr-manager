@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../Services/Users/user.service';
 import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -9,7 +10,7 @@ import { AuthService } from '../../Services/Auth/auth.service';
 @Component({
   selector: 'app-admin-employees',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './admin-employees.component.html',
   styleUrl: './admin-employees.component.css'
 })
