@@ -1,1 +1,32 @@
-<p>admin-employees works!</p>
+<app-navbar></app-navbar>
+
+
+<section class="employees-section">
+    <table id="employees">
+      <tr>
+        <th>No. </th>
+        <th>Name </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Actions</th>
+      </tr>
+  
+      <tr *ngFor=" ">
+        <td>{{i + 1}}</td>
+        <td>{{}}</td>
+        <td>{{}}</td>
+        <td>{{}}</td>
+        <!-- <td *ngIf="user.isAdmin">Admin</td>
+        <td *ngIf="!user.isAdmin">User</td> -->
+        <td>
+          <div class="actions">
+            <i class="fa-solid fa-user-xmark" title="disable"></i>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+  
+
+<app-footer></app-footer>
