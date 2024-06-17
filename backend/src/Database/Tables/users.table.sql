@@ -11,9 +11,10 @@ CREATE TABLE users (
     created_at DATETIME,
     updated_at DATETIMEVARCHAR(255),
     is_deleted BIT DEFAULT 0,
+    is_welcomed BIT DEFAULT 0,
     CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 );
 
 -- ALTER TABLE users ADD CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 
-ALTER TABLE users DROP CONSTRAINT FK_Users_Department 
+-- ALTER TABLE users DROP CONSTRAINT FK_Users_Department 

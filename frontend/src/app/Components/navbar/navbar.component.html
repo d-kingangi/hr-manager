@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="nav-links">
-      <!-- <div class="user" *ngIf="isLogged">Welcome, {{first_name | titlecase}} {{last_name | titlecase}}</div> -->
+      <div class="user" *ngIf="isLogged">Welcome, {{first_name | titlecase}} {{last_name | titlecase}} - {{role | titlecase}}</div>
         <li><a routerLink="/" data-testid="tasks"> Tasks</a></li>
         <li><a routerLink="/" data-testid="manager"> Managers</a></li>
         <li><a routerLink="/" data-testid="employees">Employees</a></li>
