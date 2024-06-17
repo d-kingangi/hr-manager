@@ -149,11 +149,43 @@ export const get_manager_tasks = async (req: Request, res: Response) => {
 
 
 export const update_task = async (req: Request, res: Response) => {
-    // try {
+    try {
+        const task_id = req.params.task_id;
         
-    // } catch (error) {
-        
-    // }
+        const { title, description, due_date, status, assigned_to, estimated_effort, labels }: task = req.body;
+
+        let { error } = update_task_schema.validate(req.body);
+        if (error) {
+            return res.status(400).json({
+                error: error.details[0].message
+            });
+        }
+
+        const pool = await mssql.connect(sqlConfig);
+
+        let result = await pool.request()
+            .input("task_id", mssql.VarChar, task_id)
+            .input("title", mssql.VarChar, title)
+            .input("description", mssql.VarChar, description)
+            .input("due_date", mssql.VarChar, due_date)
+            .input("status", mssql.VarChar, status)
+            .input("assigned_to", mssql.VarChar, assigned_to)
+            .input("estimated_effort", mssql.Int, estimated_effort)
+            .input("labels", mssql.VarChar, labels)
+            .execute('update_task');
+
+        if (result.rowsAffected[0] === 0) {
+            return res.status(404).json({
+                error: "Task not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Task updated successfully"
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error });
+    }
 }
 
 

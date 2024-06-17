@@ -85,14 +85,46 @@ export const get_single_user = async (req: Request, res: Response) => {
     }
 }
 
-export const update_user = async (req: Request, res: Response) =>{
-    // try {
-    //     const user_id = req.params.user_id
+export const update_user = async (req: Request, res: Response) => {
+    try {
+        const user_id = req.params.user_id;
+        const { first_name, last_name, phone, email, role, dept_id, password, updated_at }: user = req.body;
 
-    //     const {first_name, last_name, phone, email, role, dept_id, password, created_at, updated_at}:user = req.body
-    // } catch (error) {
-        
-    // }
+        let { error } = update_user_schema.validate(req.body);
+        if (error) {
+            return res.status(400).json({
+                error: error.details[0].message
+            });
+        }
+
+        const pool = await mssql.connect(sqlConfig);
+
+        let hashed_pwd = password ? await bcrypt.hash(password, 4) : undefined;
+
+        let result = await pool.request()
+            .input("user_id", mssql.VarChar, user_id)
+            .input("first_name", mssql.VarChar, first_name)
+            .input("last_name", mssql.VarChar, last_name)
+            .input("email", mssql.VarChar, email)
+            .input("phone", mssql.VarChar, phone)
+            .input("role", mssql.VarChar, role)
+            .input("dept_id", mssql.VarChar, dept_id)
+            .input("password", mssql.VarChar, hashed_pwd)
+            .input("updated_at", mssql.DateTime, updated_at)
+            .execute('update_user');
+
+        if (result.rowsAffected[0] === 0) {
+            return res.status(404).json({
+                error: "User not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "User updated successfully"
+        });
+    } catch (error) {
+        return res.status(500).json({ error : error});
+    }
 }
 
 export const delete_user = async (req: Request, res: Response) => {

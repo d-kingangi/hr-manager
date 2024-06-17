@@ -93,14 +93,39 @@ export const get_dept_employees = async (req: Request, res: Response) => {
 }
 
 export const update_dept = async (req: Request, res: Response) => {
-    // try {
-    //     const dept_id = req.params.dept_id
+    try {
+        const dept_id = req.params.dept_id;
+        const { name, manager_id, description }: department = req.body;
 
-    //     const {name, manager_id, description} = req.body
-    // } catch (error) {
-        
-    // }
-}
+        let { error } = update_dept_schema.validate(req.body);
+        if (error) {
+            return res.status(400).json({
+                error: error.details[0].message
+            });
+        }
+
+        const pool = await mssql.connect(sqlConfig);
+
+        let result = await pool.request()
+            .input("dept_id", mssql.VarChar, dept_id)
+            .input("name", mssql.VarChar, name)
+            .input("manager_id", mssql.VarChar, manager_id)
+            .input("description", mssql.VarChar, description)
+            .execute('update_dept');
+
+        if (result.rowsAffected[0] === 0) {
+            return res.status(404).json({
+                error: "Department not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Department updated successfully"
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error});
+    }
+};
 
 
 export const delete_dept = async (req: Request, res: Response) => {
