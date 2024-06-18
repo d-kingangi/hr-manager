@@ -2,9 +2,9 @@ publish = "/opt/build/repo"
 
 [build]
   command = """
-    npm run build --prefix backend  # Run build script from backend/package.json
-    npm run build --prefix frontend  # Run build script from frontend/package.json
-    npm run build --prefix background  # Run build script from background/package.json
+    npm run  --prefix backend  # Run build script from backend/package.json
+    npm run  --prefix frontend  # Run build script from frontend/package.json
+    npm run  --prefix background  # Run build script from background/package.json
   """
 
   publishDirectory = "backend/dist"
