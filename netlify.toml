@@ -1,0 +1,11 @@
+[build]
+
+  publish = "/opt/build/repo/dist"  # This line defines the combined output location
+
+  publishDirectory = "backend/dist"
+  frontendPublishDirectory = "frontend/dist"
+  backgroundPublishDirectory = "background/dist" 
+  
+
+  command = "npm run backend && npm run frontend && npm run background" 
+
