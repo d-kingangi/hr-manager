@@ -6,6 +6,18 @@ import { sqlConfig } from "../Config/sql.config"
 import { login_user_schema } from "../Validators/auth.validator";
 import { ExtendedUserRequest } from "../Middleware/verify_token";
 
+
+/**
+ * Asynchronously handles the login request by validating the user's credentials,
+ * checking them against the database, and returning a JSON response with a token
+ * if the credentials are correct.
+ *
+ * @param {Request} req - The Express request object containing the user's email and password.
+ * @param {Response} res - The Express response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ * @throws {Error} If there is an internal server error.
+ */
+
 export const login_user = async(req: Request, res: Response)=>{
     try {
         const{email, password} = req.body
@@ -63,6 +75,16 @@ export const login_user = async(req: Request, res: Response)=>{
     }
 }
 
+
+
+/**
+ * Asynchronously checks the user details by retrieving the user information from the request object and returning it as a JSON response.
+ *
+ * @param {ExtendedUserRequest} req - The request object containing the user information.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ */
+
 export const check_user_details =async (req: ExtendedUserRequest, res: Response) => {
     if(req.info){
         return res.json({
@@ -71,6 +93,15 @@ export const check_user_details =async (req: ExtendedUserRequest, res: Response)
     }
 }
 
+
+/**
+ * Asynchronously resets the password for a user with the given email.
+ *
+ * @param {Request} req - The request object containing the email and new password.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ * @throws {Error} If there is an error connecting to the database or updating the password.
+ */
 export const reset_password = async (req:Request, res:Response) => {
     try {
         const {email, password} = req.body
@@ -100,6 +131,14 @@ export const reset_password = async (req:Request, res:Response) => {
     }
 }
 
+
+/**
+ * A function to log out the user by clearing the token cookie and sending a JSON response with a success message.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {void} A Promise that resolves when the response is sent.
+ */
 export const logout_user = (req: Request, res: Response) => {
     res.clearCookie('token'); 
     res.json({ message: 'Logout successful' });

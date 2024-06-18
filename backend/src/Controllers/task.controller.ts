@@ -5,7 +5,13 @@ import { sqlConfig } from '../Config/sql.config';
 import { new_task_schema, update_task_schema } from '../Validators/task.validator';
 import { task } from '../Interfaces/task.interface';
 
-
+/**
+ * Creates a new task in the database.
+ *
+ * @param {Request} req - The request object containing the task data.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const create_task = async (req: Request, res: Response) => {
     try {
         const task_id = v4()
@@ -40,6 +46,14 @@ export const create_task = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Retrieves all tasks from the database.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Response} JSON response with tasks or error message.
+ */
 export const get_all_tasks = async (req: Request, res: Response) => {
     try {
         const pool = await mssql.connect(sqlConfig);
@@ -59,6 +73,14 @@ export const get_all_tasks = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Retrieves a single task from the database based on the provided task ID.
+ *
+ * @param {Request} req - The request object containing the task ID.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the task data or an error message.
+ */
 export const get_single_task = async (req: Request, res: Response) => {
     try {
         const task_id = req.params.task_id
@@ -81,6 +103,14 @@ export const get_single_task = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Retrieves tasks associated with a specific department.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 export const get_dept_tasks = async (req: Request, res: Response) => {
     try {
         const dept_id = req.params.dept_id
@@ -103,6 +133,14 @@ export const get_dept_tasks = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Retrieves tasks assigned to a specific employee.
+ *
+ * @param {Request} req - The request object containing the employee ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 export const get_employee_tasks = async (req: Request, res: Response) => {
     try {
         const assigned_to = req.params.dept_id
@@ -125,17 +163,24 @@ export const get_employee_tasks = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * Retrieves tasks created by a specific manager.
+ *
+ * @param {Request} req - The request object containing the manager ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 export const get_manager_tasks = async (req: Request, res: Response) => {
     try {
-        const created_by = req.params.created_by
+        const created_by = req.params.created_by;
 
-        const pool = await mssql.connect(sqlConfig)
+        const pool = await mssql.connect(sqlConfig);
 
-        let tasks = await(await pool.request()
-        .input("created_by", mssql.VarChar, created_by )
-        .execute('get_manager_tasks')).recordset
+        let tasks = await (await pool.request()
+            .input("created_by", mssql.VarChar, created_by)
+            .execute('get_manager_tasks')).recordset;
 
-        if(!tasks){
+        if (!tasks) {
             return res.status(404).json({
                 error: "Tasks not found"
             });
@@ -145,9 +190,15 @@ export const get_manager_tasks = async (req: Request, res: Response) => {
     } catch (error) {
         return res.status(500).json({ error: error });
     }
-}
+};
 
-
+/**
+ * Updates a task in the database based on the provided request data.
+ *
+ * @param {Request} req - The request object containing the task information.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const update_task = async (req: Request, res: Response) => {
     try {
         const task_id = req.params.task_id;
@@ -189,6 +240,13 @@ export const update_task = async (req: Request, res: Response) => {
 }
 
 
+/**
+ * Deletes a task from the database based on the provided task ID.
+ *
+ * @param {Request} req - The request object containing the task ID.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const delete_task = async (req: Request, res: Response) => {
     try {
         const task_id = req.params.task_id

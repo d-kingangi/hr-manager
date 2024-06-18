@@ -17,8 +17,8 @@ let configuration: mail_configs = ({
     port: 587,
     requireTLS: true,
     auth:{
-        user: "itsronduncan@gmail.com",
-        pass: "tiuzujzhrucqremx"
+        user: process.env.Email,
+        pass: process.env.PASSWORD
     }
 })
 

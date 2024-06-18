@@ -5,6 +5,14 @@ import { sqlConfig } from '../Config/sql.config';
 import { new_dept_schema, update_dept_schema } from '../Validators/dept.validator';
 import { department } from '../Interfaces/dept.interface';
 
+
+/**
+ * Creates a new department in the database.
+ *
+ * @param {Request} req - The request object containing the department details in the request body.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const create_dept = async (req: Request, res: Response) => {
     try {
         const dept_id = v4()
@@ -34,7 +42,14 @@ export const create_dept = async (req: Request, res: Response) => {
     }
 }
 
-
+/**
+ * Retrieves all departments from the database and returns them in a JSON format.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<Response>} A promise that resolves to a JSON response containing the retrieved departments.
+ * @throws {Error} If there is an error connecting to the database or retrieving the departments.
+ */
 export const get_all_depts = async (req: Request, res: Response)=>{
     try{
         const pool = await mssql.connect(sqlConfig)
@@ -48,6 +63,14 @@ export const get_all_depts = async (req: Request, res: Response)=>{
     }
 }
 
+
+/**
+ * Retrieves a single department based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the department information.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the department details or an error message.
+ */
 export const get_single_dept = async (req: Request, res: Response) => {
     try {
         const dept_id = req.params.dept_id
@@ -70,6 +93,14 @@ export const get_single_dept = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Retrieves the employees of a department based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the employee information.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the employee details or an error message.
+ */
 export const get_dept_employees = async (req: Request, res: Response) => {
     try {
         const dept_id = req.params.dept_id
@@ -92,6 +123,14 @@ export const get_dept_employees = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Updates a department in the database.
+ *
+ * @param {Request} req - The request object containing the department details in the request body.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const update_dept = async (req: Request, res: Response) => {
     try {
         const dept_id = req.params.dept_id;
@@ -127,7 +166,13 @@ export const update_dept = async (req: Request, res: Response) => {
     }
 };
 
-
+/**
+ * Deletes a department from the database based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 export const delete_dept = async (req: Request, res: Response) => {
     try {
         const dept_id = req.params.dept_id

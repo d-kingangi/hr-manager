@@ -9,7 +9,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     is_admin BIT DEFAULT 0,
     created_at DATETIME,
-    updated_at DATETIMEVARCHAR(255),
+    updated_at DATETIME,
     is_deleted BIT DEFAULT 0,
     is_welcomed BIT DEFAULT 0,
     CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
@@ -17,4 +17,6 @@ CREATE TABLE users (
 
 -- ALTER TABLE users ADD CONSTRAINT FK_Users_Department FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 
--- ALTER TABLE users DROP CONSTRAINT FK_Users_Department 
+ALTER TABLE users DROP CONSTRAINT FK_Users_Department 
+
+ALTER TABLE users ADD  is_welcomed BIT DEFAULT 0

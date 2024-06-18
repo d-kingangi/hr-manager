@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const verify_token_1 = require("../Middleware/verify_token");
+const dept_controller_1 = require("../Controllers/dept.controller");
+const deptRouter = (0, express_1.Router)();
+deptRouter.post('/new', dept_controller_1.create_dept);
+deptRouter.get('/all', dept_controller_1.get_all_depts);
+deptRouter.get('/:dept_id', dept_controller_1.get_single_dept);
+deptRouter.get('/:dept_id/employees', dept_controller_1.get_dept_employees);
+deptRouter.put('/update/:dept_id', verify_token_1.verify_token, dept_controller_1.update_dept);
+deptRouter.delete('/delete/:dept_id', verify_token_1.verify_token, dept_controller_1.delete_dept);
+exports.default = deptRouter;

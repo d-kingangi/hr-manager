@@ -1,6 +1,7 @@
 import mssql from 'mssql';
-import { sqlConfig } from '../Config/sqlConfig';
+import { sqlConfig } from '../Config/sql.config';
 import ejs from 'ejs';
+import env from 'dotenv'
 
 export const welcome_user = async () =>{
     const pool = await mssql.connect(sqlConfig)
@@ -12,11 +13,13 @@ export const welcome_user = async () =>{
     for( let user of users){
         ejs.renderFile('templates/register.ejs', { first_name: user.first_name, last_name: user.last_name}, async (error, data) => {
             let mailOptions = {
-                from: "itsronduncan@gmail.com",
+                from: process.env.Email,
                 to: user.email,
                 subject: "Welcome",
                 html: data
             }
+
+    
 
             try {
                 wait sendMail(mailOptions)
@@ -42,9 +45,9 @@ export const new_task = async () =>{
     for( let task of tasks){
         ejs.renderFile('templates/register.ejs', { title: task.title, description: new_task.description, due_date: new_task.due_date}, async (error, data) => {
             let mailOptions = {
-                from: "itsronduncan@gmail.com",
+                from: process.env.Email,
                 to: task.email,
-                subject: "Welcome",
+                subject: "Task  assigned.",
                 html: data
             }
 
@@ -72,7 +75,7 @@ export const completed_task = async () =>{
     for( let task of tasks){
         ejs.renderFile('templates/register.ejs', { title: task.title, description: new_task.description, due_date: new_task.due_date}, async (error, data) => {
             let mailOptions = {
-                from: "itsronduncan@gmail.com",
+                from: process.env.Email,
                 to: task.email,
                 subject: "Welcome",
                 html: data

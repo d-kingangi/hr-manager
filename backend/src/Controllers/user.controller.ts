@@ -6,6 +6,13 @@ import { sqlConfig } from "../Config/sql.config";
 import { user } from '../Interfaces/user.interface';
 import { register_user_schema, update_user_schema } from '../Validators/user.validator';
 
+/**
+ * Registers a new user.
+ *
+ * @param {Request} req - The request object containing user registration data.
+ * @param {Response} res - The response object to send the result of the registration.
+ * @return {Promise<void>} A promise that resolves when the user registration is complete, or rejects with an error.
+ */
 
 export const register_user = async (req: Request, res: Response) => {
     try {
@@ -49,7 +56,13 @@ export const register_user = async (req: Request, res: Response) => {
 }
 
 
-
+/**
+ * Retrieves all users from the database and returns them in a JSON format.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Response} JSON response containing the retrieved users.
+ */
 export const get_all_users = async(req: Request, res:Response)=>{
     try {
         const pool = await mssql.connect(sqlConfig)
@@ -62,7 +75,13 @@ export const get_all_users = async(req: Request, res:Response)=>{
     }
 }
 
-
+/**
+ * Retrieves a single user from the database based on the provided user ID.
+ *
+ * @param {Request} req - The request object containing the user ID in the parameters.
+ * @param {Response} res - The response object used to send the user data or error message.
+ * @return {Promise<Response>} A promise that resolves to the response object with the user data or error message.
+ */
 export const get_single_user = async (req: Request, res: Response) => {
     try {
         const user_id = req.params.user_id
@@ -85,6 +104,14 @@ export const get_single_user = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Asynchronously updates user information in the database based on the provided request.
+ *
+ * @param {Request} req - The request object containing user information to update.
+ * @param {Response} res - The response object to send back the result.
+ * @return {Response} JSON response indicating the success or failure of the update operation.
+ */
 export const update_user = async (req: Request, res: Response) => {
     try {
         const user_id = req.params.user_id;
@@ -127,6 +154,14 @@ export const update_user = async (req: Request, res: Response) => {
     }
 }
 
+
+/**
+ * Asynchronously deletes a user based on the user ID provided in the request.
+ *
+ * @param {Request} req - The request object containing the user ID to delete.
+ * @param {Response} res - The response object to send back the deletion status.
+ * @return {Response} JSON response indicating the success or failure of the deletion operation.
+ */
 export const delete_user = async (req: Request, res: Response) => {
     try {
         const user_id = req.params.user_id

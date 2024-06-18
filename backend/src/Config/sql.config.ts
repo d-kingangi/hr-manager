@@ -2,6 +2,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+
+// This code snippet imports the dotenv module to load environment variables from a .env file. 
+// It then defines a sqlConfig object containing database connection details like user, database name, password, server, pool settings, and encryption options
+
 export const sqlConfig = {
     user: process.env.DB_USER as string,
     database: process.env.DB_NAME as string,
@@ -17,3 +21,5 @@ export const sqlConfig = {
         trustServerCertificate: true
     }
 }
+
+// This code snippet imports the dotenv module to load environment variables from a .env file. It then defines a sqlConfig object containing database connection details like user, database name, password, server, pool settings, and encryption options

@@ -4,8 +4,8 @@ export interface mail_configs{
     port: number;
     requireTLS: boolean;
     auth:{
-        user: string;
-        pass: string;
+        user: any;
+        pass: any;
     }
 
 }
