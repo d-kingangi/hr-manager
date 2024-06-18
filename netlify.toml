@@ -1,11 +1,12 @@
-[build]
+publish = "/opt/build/repo"
 
-  publish = "/opt/build/repo/dist"  # This line defines the combined output location
+[build]
+  command = """
+    npm run build --prefix backend  # Run build script from backend/package.json
+    npm run build --prefix frontend  # Run build script from frontend/package.json
+    npm run build --prefix background  # Run build script from background/package.json
+  """
 
   publishDirectory = "backend/dist"
-  frontendPublishDirectory = "frontend/dist"
-  backgroundPublishDirectory = "background/dist" 
-  
-
-  command = "npm run backend && npm run frontend && npm run background" 
-
+  frontendPublishDirectory = "frontend/dist" 
+  # backgroundPublishDirectory = "background/dist" 
