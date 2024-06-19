@@ -15,6 +15,24 @@ Content-Type: application/json
 }
 
 
+###create task 
+
+POST http://localhost:3000/task/create
+Content-Type: application/json
+
+{
+"title": "Router Engineering",
+"description": "Router Engineering",
+"due_date": "2024-06-14T09:32:00.000Z",
+"status": "Assigned",
+"assigned_to": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"created_by": "27f4e6da-d385-44af-9c55-4784753cda8d",
+"estimated_effort": "4",
+"completed_at": "2024-06-18T09:32:00.000Z",
+"labels": "Router, Networking, Wireless"
+}
+
+
 ###Get All Tasks
 GET http://localhost:3000/task/all
 Content-Type: application/json
