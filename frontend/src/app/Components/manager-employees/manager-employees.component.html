@@ -1,1 +1,40 @@
+<app-navbar></app-navbar>
 
+
+<section class="employees-section">
+  <div *ngIf="error" class="error-message">
+    Error fetching users: {{ error }}
+  </div>
+  <table id="employees">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <!-- Example action button, adjust as per your application -->
+          <!-- <button (click)="navigateToSingleUser(user.user_id)">View Details</button> -->
+        </td>
+      </tr>
+      <!-- <tr *ngIf="users.length === 0">
+        <td colspan="6" class="text-center">No users found.</td>
+      </tr> -->
+    </tbody>
+  </table>
+</section>
+
+  
+
+<app-footer></app-footer>

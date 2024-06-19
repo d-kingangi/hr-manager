@@ -1,10 +1,12 @@
 .employees-section {
     width: 80vw;
   }
+  
   #employees {
     color: #ffffff;
     width: 80%;
   }
+
   #employees th{
     background-color: dodgerblue;
     padding: 10px;
