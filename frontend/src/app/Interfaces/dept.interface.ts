@@ -2,7 +2,8 @@ export interface department{
     dept_id: string;
     name: string,
     manager_id: string,
-    description: string
+    description: string,
+    is_deleted: boolean
 }
 
 export interface departmentInfoResponse{
@@ -11,8 +12,11 @@ export interface departmentInfoResponse{
 
 export interface departmentInfoResponse{
     info:{
-        dept_id: string,
+        dept_id: string;
         name: string,
+        manager_id: string,
+        description: string,
+        is_deleted: boolean
     },
     error: string
 }
@@ -20,8 +24,11 @@ export interface departmentInfoResponse{
 export interface allDepartmentsResponse{
     departments:[
         {
-            dept_id: string,
+            dept_id: string;
             name: string,
+            manager_id: string,
+            description: string,
+            is_deleted: boolean
         }
     ],
     error: string
