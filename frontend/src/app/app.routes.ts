@@ -9,7 +9,6 @@ import { NewDeptComponent } from './Components/new-dept/new-dept.component';
 import { NewTaskComponent } from './Components/new-task/new-task.component';
 import { ManagerDashboardComponent } from './Components/manager-dashboard/manager-dashboard.component';
 import { ManagerProfileComponent } from './Components/manager-profile/manager-profile.component';
-import { ManagerTasksComponent } from './Components/manager-tasks/manager-tasks.component';
 import { EmployeeProfileComponent } from './Components/employee-profile/employee-profile.component';
 import { EmployeeDashboardComponent } from './Components/employee-dashboard/employee-dashboard.component';
 import { UpdateProfileComponent } from './Components/update-profile/update-profile.component';
@@ -35,7 +34,6 @@ export const routes: Routes = [
     {path: 'task/new', component: NewTaskComponent},
     {path: 'dash/manager/:user_id', component: ManagerDashboardComponent},
     {path: 'profile/manager/:user_id', component: ManagerProfileComponent},
-    {path: 'tasks/manager/:created_by', component: ManagerTasksComponent},
     {path: 'dept/:dept_id/employees', component: ManagerEmployeesComponent},
     //employee route
     {path: 'profile/employee/:user_id', component: EmployeeProfileComponent},

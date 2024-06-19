@@ -1,1 +1,58 @@
-<p>manager-profile works!</p>
+<app-navbar></app-navbar>
+
+<section class="user-profile">
+    <div *ngIf="user" class="profile-card">
+      <h2>User Profile</h2>
+      <div class="profile-details">
+        <div><strong>User ID:</strong> {{ user.user_id }}</div>
+        <div><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</div>
+        <div><strong>Email:</strong> {{ user.email }}</div>
+        <!-- <div><strong>Phone:</strong> {{ user.phone }}</div>
+        <div><strong>Department:</strong> {{ user.department_name }}</div>
+        <div><strong>Role:</strong> {{ user.role }}</div> -->
+      </div>
+    </div>
+    <div *ngIf="!user" class="error-message">
+      User profile not found or loading...
+    </div>
+</section>
+
+<hr>
+
+<section class="tasks-section">
+    <div *ngIf="error" class="error-message">
+      Error fetching tasks: {{ error }}
+    </div>
+    <table id="tasks">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Assigned To</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.due_date | date: 'medium' }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.assigned_to_first_name }} {{ task.assigned_to_last_name }}</td>
+          <td>
+            <div class="actions">
+              <!-- <button *ngIf="user.isAdmin" (click)="disableTask(task.task_id)" title="Disable">Disable</button> -->
+              <!-- Add more actions as needed -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
+
+<app-footer><app-footer>
