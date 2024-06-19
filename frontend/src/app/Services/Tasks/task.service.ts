@@ -13,7 +13,7 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getToken(): string {
-    const tok.en = localStorage.getItem('token') || '';
+    const token = localStorage.getItem('token') || '';
     return token;
   }
 

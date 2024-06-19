@@ -6,45 +6,43 @@ import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000'
+  private apiUrl = 'http://localhost:3000';
 
-  getToken(){
-     const token = localStorage.getItem('token') as string
-     return token
+  constructor(private http: HttpClient) { }
+
+  getToken(): string {
+    const token = localStorage.getItem('token') || '';
+    return token;
   }
 
-  constructor(private http:HttpClient) { }
-
-  register_user(user: user){
-    return this.http.post<userInfoResponse>(`${this.apiUrl}/user/register`, user)
+  register_user(user: user): Observable<userInfoResponse> {
+    return this.http.post<userInfoResponse>(`${this.apiUrl}/user/register`, user);
   }
 
   get_all_users(): Observable<allUsersResponse> {
     return this.http.get<allUsersResponse>(`${this.apiUrl}/user/all`);
   }
 
-  get_single_user(user_id: string){
-    return this.http.get<allUsersResponse>(`${this.apiUrl}/user/${user_id}`)
+  get_single_user(user_id: string): Observable<userInfoResponse> {
+    return this.http.get<userInfoResponse>(`${this.apiUrl}/user/${user_id}`);
   }
 
-  update_user(user_id: string, user: user){
-    return this.http.put<userInfoResponse>(`${this.apiUrl}/user/update/${user_id}`, user),{
+  update_user(user_id: string, user: user): Observable<userInfoResponse> {
+    return this.http.put<userInfoResponse>(`${this.apiUrl}/user/update/${user_id}`, user, {
       headers: new HttpHeaders({
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.getToken()}`
       })
-    }
+    });
   }
 
-  delete_user(user_id: string){
-    return this.http.delete<userInfoResponse>(`${this.apiUrl}/user/delete/${user_id}`), {
+  delete_user(user_id: string): Observable<userInfoResponse> {
+    return this.http.delete<userInfoResponse>(`${this.apiUrl}/user/delete/${user_id}`, {
       headers: new HttpHeaders({
-        'content-type': 'application/json',
         'Authorization': `Bearer ${this.getToken()}`
       })
-    }
+    });
   }
 }
