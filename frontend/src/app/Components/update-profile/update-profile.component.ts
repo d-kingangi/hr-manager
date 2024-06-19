@@ -54,27 +54,36 @@ export class UpdateProfileComponent {
   }
 
 
-  get_departments(){
-    this.DeptService.get_all_depts().subscribe(res=>{
-      // if(res.departments){
-      //   res.departments.forEach((this.department) =>{
-      //     this.departments.push(department)
-      //   })
-      // }
-    })
+  get_departments() {
+    this.DeptService.get_all_depts().subscribe(
+      (response: allDepartmentsResponse) => {
+        console.log('Raw response:', response);
+        if (response.departments) {
+          this.departments = response.departments;
+          console.log('Departments fetched successfully:', this.departments);
+        } else {
+          console.error('Error fetching departments:', response.error);
+          this.displayErrors('An error occurred while fetching departments. Please try again later.');
+        }
+      },
+      (error) => {
+        console.error('Error fetching departments:', error);
+        this.displayErrors('An error occurred while fetching departments. Please try again later.');
+      }
+    );
   }
 
 
   get_user_details(){
     this.UserService.get_single_user(this.user_id).subscribe(res =>{
       this.updateProfileForm.patchValue({
-        first_name: res.users[0].first_name,
-        last_name: res.users[0].last_name,
-        phone: res.users[0].phone,
-        email: res.users[0].email,
-        role: res.users[0].role,
-        dept_id: res.users[0].dept_id,
-        password: res.users[0].password
+        first_name: res.user.first_name,
+        last_name: res.user.last_name,
+        phone: res.user.phone,
+        email: res.user.email,
+        role: res.user.role,
+        dept_id: res.user.dept_id,
+        password: res.user.password
       })
     })
   }
