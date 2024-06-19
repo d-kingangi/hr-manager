@@ -22,14 +22,6 @@ export interface departmentInfoResponse{
 }
 
 export interface allDepartmentsResponse{
-    departments:[
-        {
-            dept_id: string;
-            name: string,
-            manager_id: string,
-            description: string,
-            is_deleted: boolean
-        }
-    ],
-    error: string
+    departments: department[];
+    error?: string;
 }

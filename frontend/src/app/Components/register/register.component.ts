@@ -12,20 +12,21 @@ import { department, departmentInfoResponse, allDepartmentsResponse } from '../.
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ RouterLink, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 
 export class RegisterComponent {
   registerUserForm!: FormGroup;
-  errorMsg!:string;
+  errorMsg!: string;
   successMsg!: string;
-  errorDiv = false
-  successDiv = false
-  departments: department[] = []
+  errorDiv = false;
+  successDiv = false;
+  // departments: department[] = [];
+  departments: any[] = []; 
 
-  constructor(private UserService: UserService, private DeptService: DeptService, private fb:FormBuilder, private router: Router){
+  constructor(private UserService: UserService, private DeptService: DeptService, private fb: FormBuilder, private router: Router) {
     this.registerUserForm = this.fb.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
@@ -35,51 +36,63 @@ export class RegisterComponent {
       dept_id: ['', [Validators.required]],
       password: ['', [Validators.required]],
       created_at: ['', [Validators.required]]
-    })
-    this.get_departments()
+    });
+    this.get_departments();
   }
 
-  get_departments(){
-    this.DeptService.get_all_depts().subscribe(res=>{
-      // if(res.departments){
-      //   res.departments.forEach((this.department) =>{
-      //     this.departments.push(department)
-      //   })
-      // }
-    })
-  }
 
-  register_user(details: user){
-    if(this.registerUserForm.valid){
-      console.log('Form details', details);
-      this.UserService.register_user(details).subscribe(res =>{
-        console.log('Server Response', res);
-        if(res.message){
-          this.displaySuccess(res.message)
+  get_departments() {
+    this.DeptService.get_all_depts().subscribe(
+      (response: allDepartmentsResponse) => {
+        console.log('Raw response:', response);
+        if (response.departments) {
+          this.departments = response.departments;
+          console.log('Departments fetched successfully:', this.departments);
+        } else {
+          console.error('Error fetching departments:', response.error);
+          this.displayErrors('An error occurred while fetching departments. Please try again later.');
         }
-      })
+      },
+      (error) => {
+        console.error('Error fetching departments:', error);
+        this.displayErrors('An error occurred while fetching departments. Please try again later.');
+      }
+    );
+  }
+
+  register_user(details: user) {
+    if (this.registerUserForm.valid) {
+      console.log('Form details', details);
+      this.UserService.register_user(details).subscribe(res => {
+        console.log('Server Response', res);
+        if (res.message) {
+          this.displaySuccess(res.message);
+        }
+      }, error => {
+        console.error('Error registering user:', error);
+        this.displayErrors('An error occurred while registering the user. Please try again later.');
+      });
     }
   }
 
-  displaySuccess(msg:string){
+  displaySuccess(msg: string) {
     this.successMsg = msg;
-    this.successDiv = true
+    this.successDiv = true;
     setTimeout(() => {
-      this.successDiv = false
-      this.router.navigate(['/login'])
+      this.successDiv = false;
+      this.router.navigate(['/login']);
     }, 2000);
   }
 
-  displayErrors(msg: string){
+  displayErrors(msg: string) {
     this.errorMsg = msg;
-    this.errorDiv = true
-
+    this.errorDiv = true;
     setTimeout(() => {
-      this.errorDiv = false
+      this.errorDiv = false;
     }, 2000);
   }
 
-  resetForm(){
-    this.registerUserForm.reset()
+  resetForm() {
+    this.registerUserForm.reset();
   }
 }

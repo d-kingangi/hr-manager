@@ -1,59 +1,56 @@
 <app-navbar></app-navbar>
 
 <div class="body">
+  <div *ngIf="errorDiv" class="error-message">{{errorMsg}}</div>
+  <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
 
-    <div *ngIf="errorDiv" class="error-message">{{errorMsg}}</div>
-    <div *ngIf="successDiv" class="success-message">{{successMsg}}</div>
-
-    <div class="container">
-        <form class="form-container" [formGroup]="registerUserForm", (ngSubmit)="register_user(registerUserForm.value)">
-
-            <div class="form-container-left">
-                <div>Registration Form</div>
-                <div class="form-group">
-                    <input type="text" id="first_name" name="first_name" formControlName="first_name" placeholder="Firstname">
-                    <div class="fname-error" id="error" *ngIf="registerUserForm.get('first_name')?.invalid && registerUserForm.get('first_name')?.touched && !registerUserForm.get('first_name')?.dirty">This is required</div>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="last_name" name="last_name" formControlName="last_name" placeholder="Lastname">
-                    <div class="lname-error" id="error" *ngIf="registerUserForm.get('last_name')?.invalid && registerUserForm.get('last_name')?.touched && !registerUserForm.get('last_name')?.dirty">This is required</div>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="phone" name="phone" formControlName="phone" placeholder="Phone">
-                    <div class="phone-error" id="error" *ngIf="registerUserForm.get('phone')?.invalid && registerUserForm.get('phone')?.touched && !registerUserForm.get('phone')?.dirty">This is required</div>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" formControlName="email" placeholder="Email">
-                    <div class="email-error" id="error" *ngIf="registerUserForm.get('email')?.invalid && registerUserForm.get('email')?.touched && !registerUserForm.get('email')?.dirty">This is required</div>
-                </div>
-                <div class="form-group">
-                    <select id="role" name="role" formControlName="role" >
-                        <option value="" disabled selected>Location</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Employee">Employee</option>
-                      </select>
-                </div>
-                <div class="form-group">
-                    <select name="department" id="department" formControlName="department" >
-                        <option value="" disabled selected>department</option>
-                        <option *ngFor="let department of departments; let i = index" value="{{department.dept_id}}" placeholder="Department">{{ department.name}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" name="password" placeholder="Password">
-                    <div class="pass-error" id="error" *ngIf="registerUserForm.get('password')?.invalid && registerUserForm.get('password')?.touched && !registerUserForm.get('password')?.dirty">Password is required</div>
-                </div>
-            </div>
-
-        </form>
-    </div>
+  <div class="container">
+    <form class="form-container" [formGroup]="registerUserForm" (ngSubmit)="register_user(registerUserForm.value)">
+      <div class="form-container-left">
+        <div class="form-group">
+          <input type="text" id="first_name" name="first_name" formControlName="first_name" placeholder="Firstname">
+          <div class="fname-error" id="error" *ngIf="registerUserForm.get('first_name')?.invalid && registerUserForm.get('first_name')?.touched">This is required</div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="last_name" name="last_name" formControlName="last_name" placeholder="Lastname">
+          <div class="lname-error" id="error" *ngIf="registerUserForm.get('last_name')?.invalid && registerUserForm.get('last_name')?.touched">This is required</div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="phone" name="phone" formControlName="phone" placeholder="Phone">
+          <div class="phone-error" id="error" *ngIf="registerUserForm.get('phone')?.invalid && registerUserForm.get('phone')?.touched">This is required</div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" formControlName="email" placeholder="Email">
+          <div class="email-error" id="error" *ngIf="registerUserForm.get('email')?.invalid && registerUserForm.get('email')?.touched">This is required</div>
+        </div>
+        <div class="form-group">
+          <select id="role" name="role" formControlName="role">
+            <option value="" disabled selected>Role</option>
+            <option value="Manager">Manager</option>
+            <option value="Employee">Employee</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <select id="dept_id" name="dept_id" formControlName="dept_id">
+              <option value="" disabled selected>Department</option>
+              <option *ngFor="let department of departments" [value]="department.dept_id">{{ department.name }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" name="password" formControlName="password" placeholder="Password">
+          <div class="pass-error" id="error"  *ngIf="registerUserForm.get('password')?.invalid && registerUserForm.get('password')?.touched">Password is required</div>
+        </div>
+        <div class="submit-btn">
+            <button type="submit" class="submit-btn">Register</button>
+        </div>
+      </div>
+    </form>
 
     <div class="illustration-container">
         <img src="../../../assets/high-4.jpeg" alt="Illustration of a person working on a laptop">
-    </div>
-    
+    </div> 
 
+  </div>
+
+  
 </div>
-
-
-<app-footer></app-footer>
