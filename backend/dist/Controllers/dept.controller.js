@@ -17,6 +17,13 @@ const mssql_1 = __importDefault(require("mssql"));
 const uuid_1 = require("uuid");
 const sql_config_1 = require("../Config/sql.config");
 const dept_validator_1 = require("../Validators/dept.validator");
+/**
+ * Creates a new department in the database.
+ *
+ * @param {Request} req - The request object containing the department details in the request body.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const create_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = (0, uuid_1.v4)();
@@ -41,6 +48,14 @@ const create_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.create_dept = create_dept;
+/**
+ * Retrieves all departments from the database and returns them in a JSON format.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<Response>} A promise that resolves to a JSON response containing the retrieved departments.
+ * @throws {Error} If there is an error connecting to the database or retrieving the departments.
+ */
 const get_all_depts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const pool = yield mssql_1.default.connect(sql_config_1.sqlConfig);
@@ -52,6 +67,13 @@ const get_all_depts = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.get_all_depts = get_all_depts;
+/**
+ * Retrieves a single department based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the department information.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the department details or an error message.
+ */
 const get_single_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = req.params.dept_id;
@@ -73,6 +95,13 @@ const get_single_dept = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.get_single_dept = get_single_dept;
+/**
+ * Retrieves the employees of a department based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the employee information.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the employee details or an error message.
+ */
 const get_dept_employees = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = req.params.dept_id;
@@ -94,6 +123,13 @@ const get_dept_employees = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.get_dept_employees = get_dept_employees;
+/**
+ * Updates a department in the database.
+ *
+ * @param {Request} req - The request object containing the department details in the request body.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const update_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = req.params.dept_id;
@@ -125,6 +161,13 @@ const update_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.update_dept = update_dept;
+/**
+ * Deletes a department from the database based on the department ID.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the result of the operation.
+ * @returns {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const delete_dept = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = req.params.dept_id;

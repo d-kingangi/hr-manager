@@ -18,6 +18,13 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const uuid_1 = require("uuid");
 const sql_config_1 = require("../Config/sql.config");
 const user_validator_1 = require("../Validators/user.validator");
+/**
+ * Registers a new user.
+ *
+ * @param {Request} req - The request object containing user registration data.
+ * @param {Response} res - The response object to send the result of the registration.
+ * @return {Promise<void>} A promise that resolves when the user registration is complete, or rejects with an error.
+ */
 const register_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_id = (0, uuid_1.v4)();
@@ -52,6 +59,13 @@ const register_user = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.register_user = register_user;
+/**
+ * Retrieves all users from the database and returns them in a JSON format.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Response} JSON response containing the retrieved users.
+ */
 const get_all_users = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const pool = yield mssql_1.default.connect(sql_config_1.sqlConfig);
@@ -63,6 +77,13 @@ const get_all_users = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.get_all_users = get_all_users;
+/**
+ * Retrieves a single user from the database based on the provided user ID.
+ *
+ * @param {Request} req - The request object containing the user ID in the parameters.
+ * @param {Response} res - The response object used to send the user data or error message.
+ * @return {Promise<Response>} A promise that resolves to the response object with the user data or error message.
+ */
 const get_single_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_id = req.params.user_id;
@@ -84,6 +105,13 @@ const get_single_user = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.get_single_user = get_single_user;
+/**
+ * Asynchronously updates user information in the database based on the provided request.
+ *
+ * @param {Request} req - The request object containing user information to update.
+ * @param {Response} res - The response object to send back the result.
+ * @return {Response} JSON response indicating the success or failure of the update operation.
+ */
 const update_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_id = req.params.user_id;
@@ -121,6 +149,13 @@ const update_user = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.update_user = update_user;
+/**
+ * Asynchronously deletes a user based on the user ID provided in the request.
+ *
+ * @param {Request} req - The request object containing the user ID to delete.
+ * @param {Response} res - The response object to send back the deletion status.
+ * @return {Response} JSON response indicating the success or failure of the deletion operation.
+ */
 const delete_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_id = req.params.user_id;

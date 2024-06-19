@@ -29,6 +29,16 @@ const mssql_1 = __importDefault(require("mssql"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const sql_config_1 = require("../Config/sql.config");
 const auth_validator_1 = require("../Validators/auth.validator");
+/**
+ * Asynchronously handles the login request by validating the user's credentials,
+ * checking them against the database, and returning a JSON response with a token
+ * if the credentials are correct.
+ *
+ * @param {Request} req - The Express request object containing the user's email and password.
+ * @param {Response} res - The Express response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ * @throws {Error} If there is an internal server error.
+ */
 const login_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
@@ -76,6 +86,13 @@ const login_user = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.login_user = login_user;
+/**
+ * Asynchronously checks the user details by retrieving the user information from the request object and returning it as a JSON response.
+ *
+ * @param {ExtendedUserRequest} req - The request object containing the user information.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ */
 const check_user_details = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.info) {
         return res.json({
@@ -84,6 +101,14 @@ const check_user_details = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.check_user_details = check_user_details;
+/**
+ * Asynchronously resets the password for a user with the given email.
+ *
+ * @param {Request} req - The request object containing the email and new password.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {Promise<void>} A Promise that resolves when the response is sent.
+ * @throws {Error} If there is an error connecting to the database or updating the password.
+ */
 const reset_password = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { email, password } = req.body;
@@ -111,6 +136,13 @@ const reset_password = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.reset_password = reset_password;
+/**
+ * A function to log out the user by clearing the token cookie and sending a JSON response with a success message.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object to send the JSON response.
+ * @return {void} A Promise that resolves when the response is sent.
+ */
 const logout_user = (req, res) => {
     res.clearCookie('token');
     res.json({ message: 'Logout successful' });

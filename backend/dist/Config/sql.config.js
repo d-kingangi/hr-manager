@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sqlConfig = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+// This code snippet imports the dotenv module to load environment variables from a .env file. 
+// It then defines a sqlConfig object containing database connection details like user, database name, password, server, pool settings, and encryption options
 exports.sqlConfig = {
     user: process.env.DB_USER,
     database: process.env.DB_NAME,
@@ -21,3 +23,4 @@ exports.sqlConfig = {
         trustServerCertificate: true
     }
 };
+// This code snippet imports the dotenv module to load environment variables from a .env file. It then defines a sqlConfig object containing database connection details like user, database name, password, server, pool settings, and encryption options

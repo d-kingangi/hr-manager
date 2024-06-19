@@ -1,0 +1,24 @@
+## create task 
+POST http://localhost:3000/task/create
+Content-Type: application/json
+
+{
+"title": "Drone Engineering",
+"description": "Drone Engineering",
+"due_date": "2024-06-14T09:32:00.000Z",
+"status": "Assigned",
+"assigned_to": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"created_by": "e611b083-468f-4d1f-b7b7-fc174da76b99",
+"estimated_effort": "4",
+"completed_at": "2024-06-18T09:32:00.000Z",
+"labels": "Drone, Air, Light"
+}
+
+
+###Get All Tasks
+GET http://localhost:3000/task/all
+Content-Type: application/json
+
+###Get Single Task
+GET http://localhost:3000/task/39ebf28e-325e-4465-9fa6-8de2cbd3685c
+Content-Type: application/json

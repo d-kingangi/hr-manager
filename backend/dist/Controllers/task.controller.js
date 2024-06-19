@@ -17,6 +17,13 @@ const mssql_1 = __importDefault(require("mssql"));
 const uuid_1 = require("uuid");
 const sql_config_1 = require("../Config/sql.config");
 const task_validator_1 = require("../Validators/task.validator");
+/**
+ * Creates a new task in the database.
+ *
+ * @param {Request} req - The request object containing the task data.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const create_task = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const task_id = (0, uuid_1.v4)();
@@ -46,6 +53,13 @@ const create_task = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.create_task = create_task;
+/**
+ * Retrieves all tasks from the database.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Response} JSON response with tasks or error message.
+ */
 const get_all_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const pool = yield mssql_1.default.connect(sql_config_1.sqlConfig);
@@ -64,6 +78,13 @@ const get_all_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.get_all_tasks = get_all_tasks;
+/**
+ * Retrieves a single task from the database based on the provided task ID.
+ *
+ * @param {Request} req - The request object containing the task ID.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with the task data or an error message.
+ */
 const get_single_task = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const task_id = req.params.task_id;
@@ -85,6 +106,13 @@ const get_single_task = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.get_single_task = get_single_task;
+/**
+ * Retrieves tasks associated with a specific department.
+ *
+ * @param {Request} req - The request object containing the department ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 const get_dept_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dept_id = req.params.dept_id;
@@ -106,6 +134,13 @@ const get_dept_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.get_dept_tasks = get_dept_tasks;
+/**
+ * Retrieves tasks assigned to a specific employee.
+ *
+ * @param {Request} req - The request object containing the employee ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 const get_employee_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const assigned_to = req.params.dept_id;
@@ -127,6 +162,13 @@ const get_employee_tasks = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.get_employee_tasks = get_employee_tasks;
+/**
+ * Retrieves tasks created by a specific manager.
+ *
+ * @param {Request} req - The request object containing the manager ID.
+ * @param {Response} res - The response object to send the tasks or error message.
+ * @return {Promise<Response>} A Promise that resolves to the response object with tasks or error message.
+ */
 const get_manager_tasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const created_by = req.params.created_by;
@@ -148,6 +190,13 @@ const get_manager_tasks = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.get_manager_tasks = get_manager_tasks;
+/**
+ * Updates a task in the database based on the provided request data.
+ *
+ * @param {Request} req - The request object containing the task information.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const update_task = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const task_id = req.params.task_id;
@@ -183,6 +232,13 @@ const update_task = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.update_task = update_task;
+/**
+ * Deletes a task from the database based on the provided task ID.
+ *
+ * @param {Request} req - The request object containing the task ID.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<Response>} A Promise that resolves to the response object with a success message or an error message.
+ */
 const delete_task = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const task_id = req.params.task_id;
