@@ -1,32 +1,33 @@
 <app-navbar></app-navbar>
 
 
-<!-- <section class="depts-section">
-    <table id="depts">
-      <tr>
-        <th>No. </th>
-        <th>Name </th>
-        <th> </th>
-        <th></th>
-        <th></th>
-        <th>Actions</th>
-      </tr>
-  
-      <tr *ngFor=" ">
-        <td>{{i + 1}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td *ngIf="user.isAdmin">Admin</td>
-        <td *ngIf="!user.isAdmin">User</td>
-        <td>
-          <div class="actions">
-            <i class="fa-solid fa-user-xmark" title="disable"></i>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </section> -->
+<app-navbar></app-navbar>
+
+<section class="depts-section">
+  <table id="depts">
+    <tr>
+      <th>No. </th>
+      <th>Name </th>
+      <th>Department ID</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let dept of departments; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ dept.name }}</td>
+      <td>{{ dept.dept_id }}</td>
+      <td>
+        <div class="actions">
+          <!-- Example action icon, adjust as per your requirements -->
+          <i class="fa-solid fa-user-xmark" title="disable"></i>
+        </div>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<app-footer></app-footer>
+
   
 
 <app-footer></app-footer>
