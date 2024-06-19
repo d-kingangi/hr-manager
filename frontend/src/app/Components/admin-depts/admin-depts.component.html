@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
 
 
-<app-navbar></app-navbar>
-
 <section class="depts-section">
+  <div *ngIf="error" class="error-message">
+    Error fetching departments: {{ error }}
+  </div>
   <table id="depts">
     <tr>
       <th>No. </th>
@@ -25,9 +26,5 @@
     </tr>
   </table>
 </section>
-
-<app-footer></app-footer>
-
-  
 
 <app-footer></app-footer>

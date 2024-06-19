@@ -19,7 +19,6 @@ export class AdminEmployeesComponent {
   error: string = '';
 
   constructor(private UserService: UserService){
-
   }
 
   ngOnInit(): void {

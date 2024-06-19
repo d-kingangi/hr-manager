@@ -13,15 +13,31 @@ import { TaskService } from '../../Services/Tasks/task.service';
   templateUrl: './admin-tasks.component.html',
   styleUrl: './admin-tasks.component.css'
 })
+
 export class AdminTasksComponent {
 
   tasks: task[] = []
+  error: string = '';
 
-  constructor(private TaskService: TaskService){
-    this.get_all_tasks()
+  constructor(private TaskService: TaskService){ }
+
+  ngOnInit(): void {
+    this.get_all_tasks();
   }
 
-  get_all_tasks(){}
+  get_all_tasks(): void {
+    this.TaskService.get_all_tasks().subscribe(
+      (response: allTasksResponse) => {
+        console.log('All tasks:', response);
+        this.tasks = response.tasks || [];
+      },
+      (error) => {
+        console.error('Error fetching tasks:', error);
 
-  navigate_to_update_task(){}
+      }
+    )
+
+  }
+
+  // navigate_to_update_task(){}
 }

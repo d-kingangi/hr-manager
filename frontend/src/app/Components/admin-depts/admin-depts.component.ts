@@ -21,6 +21,7 @@ export class AdminDeptsComponent {
   successMsg!: string;
   errorDiv = false;
   successDiv = false;
+  error: string = '';
 
   constructor( private DeptService: DeptService){
     this.get_all_depts()
