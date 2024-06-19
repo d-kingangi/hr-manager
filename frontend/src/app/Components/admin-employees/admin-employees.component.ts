@@ -5,11 +5,12 @@ import { UserService } from '../../Services/Users/user.service';
 import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
   selector: 'app-admin-employees',
   standalone: true,
-  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent],
   templateUrl: './admin-employees.component.html',
   styleUrl: './admin-employees.component.css'
 })

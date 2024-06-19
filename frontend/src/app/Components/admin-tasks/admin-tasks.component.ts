@@ -5,11 +5,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { task, taskInfoResponse, allTasksResponse } from '../../Interfaces/task.interface';
 import { TaskService } from '../../Services/Tasks/task.service';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
   selector: 'app-admin-tasks',
   standalone: true,
-  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent],
   templateUrl: './admin-tasks.component.html',
   styleUrl: './admin-tasks.component.css'
 })

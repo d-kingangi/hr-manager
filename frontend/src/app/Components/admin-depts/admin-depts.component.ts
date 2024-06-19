@@ -5,11 +5,12 @@ import { department, departmentInfoResponse, allDepartmentsResponse } from '../.
 import { DeptService } from '../../Services/Depts/dept.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
   selector: 'app-admin-depts',
   standalone: true,
-  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent ],
+  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent ],
   templateUrl: './admin-depts.component.html',
   styleUrl: './admin-depts.component.css'
 })
