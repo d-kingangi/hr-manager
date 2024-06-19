@@ -7,11 +7,12 @@ import { task, taskInfoResponse, allTasksResponse} from '../../Interfaces/task.i
 import { user } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ManagerSidebarComponent } from '../manager-sidebar/manager-sidebar.component';
 
 @Component({
   selector: 'app-manager-profile',
   standalone: true,
-  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule],
+  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule, ManagerSidebarComponent],
   templateUrl: './manager-profile.component.html',
   styleUrl: './manager-profile.component.css'
 })
