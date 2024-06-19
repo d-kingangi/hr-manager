@@ -25,8 +25,8 @@ export class UserService {
     return this.http.get<allUsersResponse>(`${this.apiUrl}/user/all`);
   }
 
-  get_single_user(user_id: string): Observable<userInfoResponse> {
-    return this.http.get<userInfoResponse>(`${this.apiUrl}/user/${user_id}`);
+  get_single_user(user_id: string): Observable<user> {
+    return this.http.get<user>(`${this.apiUrl}/user/${user_id}`);
   }
 
   update_user(user_id: string, user: user): Observable<userInfoResponse> {

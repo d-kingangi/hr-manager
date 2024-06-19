@@ -12,7 +12,6 @@ import { ManagerProfileComponent } from './Components/manager-profile/manager-pr
 import { ManagerTasksComponent } from './Components/manager-tasks/manager-tasks.component';
 import { EmployeeProfileComponent } from './Components/employee-profile/employee-profile.component';
 import { EmployeeDashboardComponent } from './Components/employee-dashboard/employee-dashboard.component';
-import { EmployeeTasksComponent } from './Components/employee-tasks/employee-tasks.component';
 import { UpdateProfileComponent } from './Components/update-profile/update-profile.component';
 import { UpdateTaskComponent } from './Components/update-task/update-task.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
@@ -41,7 +40,6 @@ export const routes: Routes = [
     //employee route
     {path: 'profile/employee/:user_id', component: EmployeeProfileComponent},
     {path: 'dash/employee/:user_id', component: EmployeeDashboardComponent},
-    {path: 'tasks/employee/:assigned_to', component: EmployeeTasksComponent},
     //all
     {path: 'profile/update/:user_id', component: UpdateProfileComponent},
     {path: 'task/update/:task_id', component: UpdateTaskComponent},

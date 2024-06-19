@@ -77,13 +77,13 @@ export class UpdateProfileComponent {
   get_user_details(){
     this.UserService.get_single_user(this.user_id).subscribe(res =>{
       this.updateProfileForm.patchValue({
-        first_name: res.user.first_name,
-        last_name: res.user.last_name,
-        phone: res.user.phone,
-        email: res.user.email,
-        role: res.user.role,
-        dept_id: res.user.dept_id,
-        password: res.user.password
+        first_name: res.first_name,
+        last_name: res.last_name,
+        phone: res.phone,
+        email: res.email,
+        role: res.role,
+        dept_id: res.dept_id,
+        password: res.password
       })
     })
   }

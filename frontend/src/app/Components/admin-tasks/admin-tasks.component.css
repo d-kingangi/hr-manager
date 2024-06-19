@@ -1,24 +1,24 @@
-.employees-section {
+.tasks-section {
     width: 80vw;
   }
   
-  #employees {
+  #tasks {
     color: #ffffff;
     width: 80%;
   }
   
-  #employees th{
+  #tasks th{
     background-color: dodgerblue;
     padding: 10px;
     text-align: left;
   }
   
-  #employees td {
+  #tasks td {
     background-color: #dbdbdb;
     padding: 10px;
   }
   
-  #employees td:nth-child(even) {
+  #tasks td:nth-child(even) {
     background-color: dodgerblue;
   }
   

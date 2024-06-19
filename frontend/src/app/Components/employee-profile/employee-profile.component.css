@@ -1,0 +1,35 @@
+
+
+
+.tasks-section {
+    width: 80vw;
+  }
+  
+  #tasks {
+    color: #ffffff;
+    width: 80%;
+  }
+  
+  #tasks th{
+    background-color: dodgerblue;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  #tasks td {
+    background-color: #dbdbdb;
+    padding: 10px;
+  }
+  
+  #tasks td:nth-child(even) {
+    background-color: dodgerblue;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .actions i {
+    cursor: pointer;
+  }
