@@ -60,19 +60,27 @@ export class RegisterComponent {
     );
   }
 
-  register_user(details: user) {
-    if (this.registerUserForm.valid) {
-      console.log('Form details', details);
-      this.UserService.register_user(details).subscribe(res => {
-        console.log('Server Response', res);
-        if (res.message) {
-          this.displaySuccess(res.message);
-        }
-      }, error => {
-        console.error('Error registering user:', error);
-        this.displayErrors('An error occurred while registering the user. Please try again later.');
-      });
+  register_user() {
+    if (this.registerUserForm.invalid) {
+      return;
     }
+
+    this.UserService.register_user(this.registerUserForm.value).subscribe(
+      (res) => {
+        if (res.error) {
+          this.errorMsg = res.error;
+          this.successMsg = '';
+        } else {
+          this.successMsg = 'User registered successfully';
+          this.errorMsg = '';
+        }
+      },
+      (error) => {
+        console.error('Error registering user:', error);
+        this.errorMsg = 'Failed to register user';
+        this.successMsg = '';
+      }
+    );
   }
 
   displaySuccess(msg: string) {

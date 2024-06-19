@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.interface';
 
@@ -21,8 +22,8 @@ export class UserService {
     return this.http.post<userInfoResponse>(`${this.apiUrl}/user/register`, user)
   }
 
-  get_all_users(){
-    return this.http.get<userInfoResponse>(`${this.apiUrl}/user/all`)
+  get_all_users(): Observable<allUsersResponse> {
+    return this.http.get<allUsersResponse>(`${this.apiUrl}/user/all`);
   }
 
   get_single_user(user_id: string){

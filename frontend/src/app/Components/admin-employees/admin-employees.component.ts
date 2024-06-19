@@ -5,7 +5,6 @@ import { UserService } from '../../Services/Users/user.service';
 import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { AuthService } from '../../Services/Auth/auth.service';
 
 @Component({
   selector: 'app-admin-employees',
@@ -16,15 +15,32 @@ import { AuthService } from '../../Services/Auth/auth.service';
 })
 
 export class AdminEmployeesComponent {
-  user: user[]=[]
+  users: user[] = [];
+  error: string = '';
 
   constructor(private UserService: UserService){
-    this.get_all_user()
+
+  }
+
+  ngOnInit(): void {
+    this.get_all_users();
   }
   
-  get_all_user(){}
+  get_all_users() {
+    this.UserService.get_all_users().subscribe(
+      (response: allUsersResponse) => {
+        console.log('all users:', response)
+        this.users = response.users; 
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
 
-  navigate_to_single_user(){}
+  // navigateToSingleUser(userId: string) {
+  //   this.router.navigate(['/user', userId]); // Example route, adjust as per your routing setup
+  // }
 }
 
 

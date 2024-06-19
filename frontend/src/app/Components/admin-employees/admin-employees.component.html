@@ -1,32 +1,40 @@
-<!-- <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
 
 <section class="employees-section">
-    <table id="employees">
+  <div *ngIf="error" class="error-message">
+    Error fetching users: {{ error }}
+  </div>
+  <table id="employees">
+    <thead>
       <tr>
-        <th>No. </th>
-        <th>Name </th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
         <th>Actions</th>
       </tr>
-  
-      <tr *ngFor=" ">
-        <td>{{i + 1}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td *ngIf="user.isAdmin">Admin</td>
-        <td *ngIf="!user.isAdmin">User</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.role }}</td>
         <td>
-          <div class="actions">
-            <i class="fa-solid fa-user-xmark" title="disable"></i>
-          </div>
+          <!-- Example action button, adjust as per your application -->
+          <!-- <button (click)="navigateToSingleUser(user.user_id)">View Details</button> -->
         </td>
       </tr>
-    </table>
-  </section>
+      <!-- <tr *ngIf="users.length === 0">
+        <td colspan="6" class="text-center">No users found.</td>
+      </tr> -->
+    </tbody>
+  </table>
+</section>
+
   
 
-<app-footer></app-footer> -->
+<app-footer></app-footer>

@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class NavbarComponent {
 
   constructor(private router: Router, private AuthService: AuthService){
-    this.check_auth()
+    // this.check_auth()
   }
 
   isLogged: boolean = false;
@@ -47,21 +47,21 @@ export class NavbarComponent {
     }
   }
 
-  check_auth(){
-    const token = this.getToken()
-    if(token != null){
-      this.AuthService.checkUserDetails(token).subscribe(res =>{
-        if(res.user[0]){
-          this.isLogged = true
-          this.first_name = res.user[0].first_name
-          this.last_name = res.user[0].last_name
-          this.role = res.user[0].role
-        }
-      })
-    } else{
-      this.isLogged = false
-    }
-  }
+  // check_auth(){
+  //   const token = this.getToken()
+  //   if(token != null){
+  //     this.AuthService.checkUserDetails(token).subscribe(res =>{
+  //       if(res.user[0]){
+  //         this.isLogged = true
+  //         this.first_name = res.user[0].first_name
+  //         this.last_name = res.user[0].last_name
+  //         this.role = res.user[0].role
+  //       }
+  //     })
+  //   } else{
+  //     this.isLogged = false
+  //   }
+  // }
 
   logout(){
     if(typeof window !== 'undefined'){
