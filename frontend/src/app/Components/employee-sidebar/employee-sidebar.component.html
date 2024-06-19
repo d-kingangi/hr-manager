@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
+
+
 <div class="employee-sidebar">
     <div class="wrapper">
       <div class="logo">
@@ -7,8 +9,9 @@
     </div>
     <div>
       <ul class="links">
-        <li routerLink=""><i class="fa-solid fa-plus"></i>Profile</li>
-        <li routerLink=""><i class="fa-solid fa-plus"></i>Tasks</li>
+        <li routerLink="/profile/employee/:user_id"><i class="fa-solid fa-plus"></i>Profile</li>
+        <li routerLink="/profile/update/:user_id"><i class="fa-solid fa-plus"></i>Update Profile</li>
+        <li routerLink="/task/update/:task_id"><i class="fa-solid fa-plus"></i>Update Task</li>
       </ul>
     </div>
     </div>

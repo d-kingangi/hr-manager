@@ -8,11 +8,12 @@ import { task, taskInfoResponse, allTasksResponse} from '../../Interfaces/task.i
 import { user } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { EmployeeSidebarComponent } from '../employee-sidebar/employee-sidebar.component';
 
 @Component({
   selector: 'app-employee-profile',
   standalone: true,
-  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule],
+  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule,EmployeeSidebarComponent],
   templateUrl: './employee-profile.component.html',
   styleUrl: './employee-profile.component.css'
 })
