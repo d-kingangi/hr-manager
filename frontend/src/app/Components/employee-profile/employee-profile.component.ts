@@ -6,14 +6,11 @@ import { UserService } from '../../Services/Users/user.service'
 import { TaskService } from '../../Services/Tasks/task.service'
 import { task, taskInfoResponse, allTasksResponse} from '../../Interfaces/task.interface'
 import { user } from '../../Interfaces/user.interface';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
-import { EmployeeSidebarComponent } from '../employee-sidebar/employee-sidebar.component';
 
 @Component({
   selector: 'app-employee-profile',
   standalone: true,
-  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule,EmployeeSidebarComponent],
+  imports: [ RouterLink, CommonModule],
   templateUrl: './employee-profile.component.html',
   styleUrl: './employee-profile.component.css'
 })
