@@ -1,6 +1,4 @@
 
-<hr>
-
 <nav>
     <div class="nav-logo">
         <a routerLink="/">
@@ -14,9 +12,9 @@
         <li><a routerLink="/" data-testid="employees">Employees</a></li> -->
     </div>
       <div>
-        <li><a *ngIf="!isTokenAvailable()" routerLink="/login" data-testid="login">Login</a></li>
-        <li><a *ngIf="isTokenAvailable()" (click)="logout()" data-testid="logout">Logout</a></li>
-        <li><a *ngIf="!isTokenAvailable()" routerLink="/register" data-testid="sign-up">Sign-up</a></li>
+        <li><a *ngIf="!isTokenAvailable()" routerLink="/login" data-testid="login"><b>Login</b></a></li>
+        <li><a *ngIf="isTokenAvailable()" (click)="logout()" data-testid="logout"><b>Logout</b></a></li>
+        <li><a *ngIf="!isTokenAvailable()" routerLink="/register" data-testid="sign-up"><b>Sign-up</b></a></li>
       </div>
     <div class="profile-logo">
         <a routerLink="">
@@ -25,4 +23,3 @@
     </div>
 </nav>
 
-<hr>

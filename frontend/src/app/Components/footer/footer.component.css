@@ -1,13 +1,11 @@
 .footer {
-    /* background-color: #030130; */
+    background-color: rgb(214, 214, 214);
     color: #ffffff;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     justify-content: space-around;
-    height: 30vh;
-    width: 80vw;
-    margin-left: auto; 
-    margin-right: auto; 
+    height: 20vh;
+    width: 100vw;
   }
   
   .footer-column {

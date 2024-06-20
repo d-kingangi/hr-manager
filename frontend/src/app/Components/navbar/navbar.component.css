@@ -1,12 +1,6 @@
 nav {
-    /* position: fixed; */
-    width: 80vw;
     height: 8vh;
-    margin-left: auto; 
-    margin-right: auto; 
-    border-radius: 25px;
-    margin-top: 20px;
-    background-color: white;
+    background-color: rgb(214, 214, 214);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +32,8 @@ div:nth-child(3) li a {
     color: #000; 
     text-decoration: none; 
     transition: color 0.3s, border-bottom-color 0.3s; 
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .nav-links li a:hover,

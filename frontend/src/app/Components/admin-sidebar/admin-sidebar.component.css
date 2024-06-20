@@ -1,5 +1,8 @@
 .main-layout {
   display: flex;
+  background-color: rgb(214, 214, 214);
+  margin-right: 2vw;
+  align-items: center;
 }
 
 .admin-sidebar {
@@ -27,10 +30,13 @@
   
   .links > li {
     cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
   }
   
   .links >li:hover {
-    color: #1e90ff;
+    color: #f9a804; 
+    border-bottom: 2px solid #f9a804; 
   }
   
   i {
