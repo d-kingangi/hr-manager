@@ -42,11 +42,21 @@ export const routes: Routes = [
       // { path: 'admindashboard', component: AdminDashboardComponent },
 
     //manager routes
-    {path: 'task/new', component: NewTaskComponent},
-    {path: 'dash/manager/:user_id', component: ManagerDashboardComponent},
-    {path: 'profile/:user_id', component: ManagerProfileComponent},
-    {path: 'dept/:dept_id/employees', component: ManagerEmployeesComponent},
 
+    {
+      path: 'manager',
+      component: ManagerDashboardComponent,
+      children: [
+        {path: 'task/new', component: NewTaskComponent},
+        {path: 'task/update/:task_id', component: UpdateTaskComponent},
+        // {path: 'dash/:user_id', component: ManagerDashboardComponent},
+        {path: 'profile/:user_id', component: ManagerProfileComponent},
+        {path: 'profile/update/:user_id', component: UpdateProfileComponent},
+        {path: 'dept/:dept_id/employees', component: ManagerEmployeesComponent},
+        { path: '', redirectTo: 'managerdashboard', pathMatch: 'full' }
+      ]
+    },
+    // { path: 'admindashboard', component: ManagerDashboardComponent },
 
     //employee route
    
@@ -62,9 +72,6 @@ export const routes: Routes = [
     },
     // { path: 'employeedashboard', component: EmployeeDashboardComponent },
 
-    //all
-    {path: 'profile/update/:user_id', component: UpdateProfileComponent},
-    {path: 'task/update/:task_id', component: UpdateTaskComponent},
     {path: '**', component: NotFoundComponent}
 ];
 

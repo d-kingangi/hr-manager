@@ -5,14 +5,11 @@ import { UserService } from '../../Services/Users/user.service'
 import { TaskService } from '../../Services/Tasks/task.service'
 import { task, taskInfoResponse, allTasksResponse} from '../../Interfaces/task.interface'
 import { user } from '../../Interfaces/user.interface';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
-import { ManagerSidebarComponent } from '../manager-sidebar/manager-sidebar.component';
 
 @Component({
   selector: 'app-manager-profile',
   standalone: true,
-  imports: [ RouterLink, NavbarComponent, FooterComponent, CommonModule, ManagerSidebarComponent],
+  imports: [ RouterLink, CommonModule],
   templateUrl: './manager-profile.component.html',
   styleUrl: './manager-profile.component.css'
 })

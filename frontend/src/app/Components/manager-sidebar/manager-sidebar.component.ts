@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { Router,  RouterLink, RouterOutlet  } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-manager-sidebar',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './manager-sidebar.component.html',
   styleUrl: './manager-sidebar.component.css'
 })
