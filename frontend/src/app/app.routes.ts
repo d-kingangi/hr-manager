@@ -33,7 +33,7 @@ export const routes: Routes = [
           { path: 'profile/:user_id', component: EmployeeProfileComponent },
           { path: 'employees', component: AdminEmployeesComponent },
           { path: 'task/all', component: AdminTasksComponent },
-          { path: 'depts/new', component: NewDeptComponent },
+          { path: 'dept/new', component: NewDeptComponent },
           { path: 'dept/update/:dept_id', component: UpdateDeptComponent },
           {path: 'task/update/:task_id', component: UpdateTaskComponent},
           { path: '', redirectTo: 'admindashboard', pathMatch: 'full' }

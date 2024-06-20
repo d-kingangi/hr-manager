@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { task, taskInfoResponse, allTasksResponse } from '../../Interfaces/task.interface';
 import { TaskService } from '../../Services/Tasks/task.service';
@@ -12,10 +12,10 @@ import { TaskService } from '../../Services/Tasks/task.service';
   styleUrl: './admin-tasks.component.css'
 })
 
-export class AdminTasksComponent {
+export class AdminTasksComponent implements OnInit {
 
-  tasks: task[] = []
-  error: string = '';
+  tasks: any[] = []
+  error: string | null = null;
 
   constructor(private TaskService: TaskService){ }
 
@@ -28,13 +28,13 @@ export class AdminTasksComponent {
       (response: allTasksResponse) => {
         console.log('All tasks:', response);
         this.tasks = response.tasks || [];
+        this.error = null; // Clear any previous error
       },
       (error) => {
         console.error('Error fetching tasks:', error);
-
+        this.error = 'Error fetching tasks: ' + (error.message || 'Unknown error');
       }
-    )
-
+    );
   }
 
   // navigate_to_update_task(){}

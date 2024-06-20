@@ -43,26 +43,6 @@ export class RegisterComponent {
   }
 
 
-  // get_departments() {
-  //   this.DeptService.get_all_depts().subscribe(
-  //     (response: allDepartmentsResponse) => {
-  //       console.log('Raw response:', response);
-  //       if (response.departments) {
-  //         this.departments = response.departments;
-  //         console.log('Departments fetched successfully:', this.departments);
-  //       } else {
-  //         console.error('Error fetching departments:', response.error);
-  //         this.displayErrors('An error occurred while fetching departments. Please try again later.');
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching departments:', error);
-  //       this.displayErrors('An error occurred while fetching departments. Please try again later.');
-  //     }
-  //   );
-  // }
-
-
   get_departments(): void {
     this.DeptService.get_all_depts().subscribe(
       (res: {departments: department[] }) =>{
