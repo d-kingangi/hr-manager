@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../Services/Users/user.service';
 import { user, userInfoResponse, allUsersResponse } from '../../Interfaces/user.interface';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -12,14 +12,16 @@ import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component'
   standalone: true,
   imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent],
   templateUrl: './admin-employees.component.html',
-  styleUrl: './admin-employees.component.css'
+  styleUrl: './admin-employees.component.css', 
 })
 
 export class AdminEmployeesComponent {
   users: user[] = [];
+  userInfoResponse: userInfoResponse;
   error: string = '';
 
-  constructor(private UserService: UserService){
+  constructor(private UserService: UserService, private router: Router, private route: ActivatedRoute,){
+    this.userInfoResponse = {} as userInfoResponse
   }
 
   ngOnInit(): void {
@@ -38,9 +40,9 @@ export class AdminEmployeesComponent {
     );
   }
 
-  // navigateToSingleUser(userId: string) {
-  //   this.router.navigate(['/user', userId]); // Example route, adjust as per your routing setup
-  // }
+  navigate_to_single_user(user_id: string): void {
+    this.router.navigate([`/profile/employee/${user_id}`]);
+  }
 }
 
 

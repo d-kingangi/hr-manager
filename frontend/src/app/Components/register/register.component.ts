@@ -23,8 +23,10 @@ export class RegisterComponent {
   successMsg!: string;
   errorDiv = false;
   successDiv = false;
-  // departments: department[] = [];
-  departments: any[] = []; 
+  departments: department[] = [];
+  // departments: any[] = []; 
+  department: department | null = null
+  departmentInfoResponse = {} as departmentInfoResponse
 
   constructor(private UserService: UserService, private DeptService: DeptService, private fb: FormBuilder, private router: Router) {
     this.registerUserForm = this.fb.group({
@@ -41,23 +43,39 @@ export class RegisterComponent {
   }
 
 
-  get_departments() {
+  // get_departments() {
+  //   this.DeptService.get_all_depts().subscribe(
+  //     (response: allDepartmentsResponse) => {
+  //       console.log('Raw response:', response);
+  //       if (response.departments) {
+  //         this.departments = response.departments;
+  //         console.log('Departments fetched successfully:', this.departments);
+  //       } else {
+  //         console.error('Error fetching departments:', response.error);
+  //         this.displayErrors('An error occurred while fetching departments. Please try again later.');
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching departments:', error);
+  //       this.displayErrors('An error occurred while fetching departments. Please try again later.');
+  //     }
+  //   );
+  // }
+
+
+  get_departments(): void {
     this.DeptService.get_all_depts().subscribe(
-      (response: allDepartmentsResponse) => {
-        console.log('Raw response:', response);
-        if (response.departments) {
-          this.departments = response.departments;
-          console.log('Departments fetched successfully:', this.departments);
-        } else {
-          console.error('Error fetching departments:', response.error);
-          this.displayErrors('An error occurred while fetching departments. Please try again later.');
+      (res: {departments: department[] }) =>{
+        if(res && Array.isArray(res.departments)){
+          this.departments = res.departments
+        } else{
+          console.error('Unexpected response structure:', res);
         }
       },
       (error) => {
         console.error('Error fetching departments:', error);
-        this.displayErrors('An error occurred while fetching departments. Please try again later.');
       }
-    );
+    )
   }
 
   register_user() {
