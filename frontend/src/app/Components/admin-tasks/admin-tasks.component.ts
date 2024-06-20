@@ -1,16 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 import { task, taskInfoResponse, allTasksResponse } from '../../Interfaces/task.interface';
 import { TaskService } from '../../Services/Tasks/task.service';
-import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
   selector: 'app-admin-tasks',
   standalone: true,
-  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent],
+  imports: [ RouterLink, CommonModule ],
   templateUrl: './admin-tasks.component.html',
   styleUrl: './admin-tasks.component.css'
 })

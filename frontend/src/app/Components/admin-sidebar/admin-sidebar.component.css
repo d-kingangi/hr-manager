@@ -1,3 +1,7 @@
+.main-layout {
+  display: flex;
+}
+
 .admin-sidebar {
     display: flex;
     flex-direction: column;

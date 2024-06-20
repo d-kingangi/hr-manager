@@ -23,13 +23,29 @@ export const routes: Routes = [
     {path: '', component: LandingComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+
     //admin routes
-    {path: 'admin/employees', component: AdminEmployeesComponent},
-    {path: 'admin/depts', component: AdminDeptsComponent},
-    {path: 'admin/depts/new', component: NewDeptComponent},
-    {path: 'dept/update/:dept_id', component: UpdateDeptComponent},
-    {path: 'admin/dash/:user_id', component: AdminDashboardComponent},
-    {path: 'admin/task/all', component: AdminTasksComponent},
+    // {path: 'admin/employees', component: AdminEmployeesComponent},
+    // {path: 'admin/depts', component: AdminDeptsComponent},
+    // {path: 'admin/depts/new', component: NewDeptComponent},
+    // {path: 'dept/update/:dept_id', component: UpdateDeptComponent},
+    // {path: 'admin/dash/:user_id', component: AdminDashboardComponent},
+    // {path: 'admin/task/all', component: AdminTasksComponent},
+    {
+        path: 'admin',
+        component: AdminDashboardComponent,
+        children: [
+          { path: 'depts', component: AdminDeptsComponent },
+          { path: 'profile/employee/:user_id', component: EmployeeProfileComponent },
+          { path: 'employees', component: AdminEmployeesComponent },
+          { path: 'task/all', component: AdminTasksComponent },
+          { path: 'depts/new', component: NewDeptComponent },
+          { path: 'dept/update/:dept_id', component: UpdateDeptComponent },
+          { path: '', redirectTo: 'admindashboard', pathMatch: 'full' }
+        ]
+      },
+      { path: 'admindashboard', component: AdminDashboardComponent },
+
     //manager routes
     {path: 'task/new', component: NewTaskComponent},
     {path: 'dash/manager/:user_id', component: ManagerDashboardComponent},

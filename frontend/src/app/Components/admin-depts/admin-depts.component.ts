@@ -3,14 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { department, departmentInfoResponse, allDepartmentsResponse } from '../../Interfaces/dept.interface';
 import { DeptService } from '../../Services/Depts/dept.service';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
-import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
   selector: 'app-admin-depts',
   standalone: true,
-  imports: [ RouterLink, CommonModule, NavbarComponent, FooterComponent, AdminSidebarComponent ],
+  imports: [ RouterLink, CommonModule],
   templateUrl: './admin-depts.component.html',
   styleUrl: './admin-depts.component.css'
 })
