@@ -1,0 +1,10 @@
+
+
+version: 2
+updates:
+  # Update all package ecosystems every 2 months
+  - package-ecosystem: '*'
+    schedule:
+      interval: 'every'
+      unit: 'months'
+      frequency: 1
