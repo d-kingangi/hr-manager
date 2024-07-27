@@ -56,7 +56,7 @@ export const routes: Routes = [
         { path: '', redirectTo: 'managerdashboard', pathMatch: 'full' }
       ]
     },
-    // { path: 'admindashboard', component: ManagerDashboardComponent },
+    // { path: 'managerdashboard', component: ManagerDashboardComponent },
 
     //employee route
    

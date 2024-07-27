@@ -30,22 +30,22 @@ export class LandingComponent {
     { 
       question: "How can I earn on HR-Manager?", 
       answer: "Labour currently supports two major blockchains; Ethereum and BNB Chain. Freelancers and Customers can organise job payments in ETH, WBTC, TIME, and stablecoins", 
-      expanded: false 
+      expanded: true 
     },
     {
       question: "How does a HR-Manager Premium membership benefit Emloyees?",
       answer: "Freelancers are charged 10% in platform fees for each Job or Gig they complete. ",
-      expanded: false
+      expanded: true
     },
     {
       question: "How does a HR-Manager Premium membership benefit Managers?",
       answer: "Customers receive a bonus in Labour tokens every time they make a payment to a Freelancer. This acts as an incentive for Customers to continue using Labour for all their hiring needs.",
-      expanded: false
+      expanded: true
     }, 
     {
       question: "Can I apply for jobs without a Premium membership?",
       answer: "Absolutely! Labour’s cryptocurrency job market is open to all. ",
-      expanded: false
+      expanded: true
     }
 
   ]

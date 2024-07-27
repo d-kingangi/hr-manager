@@ -115,6 +115,8 @@ export const get_single_user = async (req: Request, res: Response) => {
 export const update_user = async (req: Request, res: Response) => {
     try {
         const user_id = req.params.user_id;
+        
+        
         const { first_name, last_name, phone, email, role, dept_id, password, updated_at }: user = req.body;
 
         let { error } = update_user_schema.validate(req.body);
