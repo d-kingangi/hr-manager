@@ -83,3 +83,47 @@ describe('Gets all departments', ()=>{
         expect(res.json).toHaveBeenCalledWith({ users: mockedResult });
     })
 })
+
+describe('Gets single department', ()=>{
+    let req: any
+    let res: any
+
+    beforeEach(()=>{
+        req = {
+            params: {
+                dept_id: '23245-3566464-74756757'
+            },
+        }
+        res = {
+            json: jest.fn().mockReturnThis()
+            status: jest.fn().mockReturnThis()
+        }
+    })
+
+    it('Successful fetch for a single dept',async () => {
+        const mockedResult = [
+         //mock json    {dept_id: '23245-3566464-74756757', }
+        ]
+    
+        const mockedInput = jest.fn().mockReturnThis() 
+    
+        const mockedExecute = jest.fn().mockResolvedValue({ recordset: mockedResult [0] })
+    
+        const mockedRequest ={
+            input: mockedInput,
+            execute: mockedExecute
+        }
+    
+        const mockedPool ={
+            request: jest.fn().mockReturnValue(mockedRequest)
+        }
+    
+        jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool as never)
+    
+        await get_single_dept(req as any, res)
+    
+        // expect(res.status).toHaveBeenCalledWith(500);
+        expect(res.json).toHaveBeenCalledWith({ error: "An error occurred while fetching department." });
+    })
+})
+
